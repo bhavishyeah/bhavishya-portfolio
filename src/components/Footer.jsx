@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-inner">
         <span>&copy; 2026 {profile.name}</span>
-        <span>Built with React, Vite &amp; Framer Motion</span>
+        <span>Built with React, Vite, Three.js &amp; GSAP</span>
         <a href={`mailto:${profile.email}`}>{profile.email}</a>
       </div>
     </footer>

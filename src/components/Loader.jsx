@@ -8,7 +8,7 @@ export default function Loader({ show }) {
     if (!show) return
     let raf
     const start = performance.now()
-    const dur = 1100
+    const dur = 1300
     const loop = (t) => {
       const p = Math.min(100, Math.round(((t - start) / dur) * 100))
       setPct(p)
@@ -27,20 +27,11 @@ export default function Loader({ show }) {
           exit={{ y: '-100%' }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
         >
-          <motion.div
-            className="loader-word"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div className="loader-word" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             BHAVISHYA<b>.DEV</b>
           </motion.div>
           <div className="loader-bar">
-            <motion.span
-              initial={{ width: '0%' }}
-              animate={{ width: `${pct}%` }}
-              transition={{ ease: 'linear' }}
-            />
+            <motion.span initial={{ width: '0%' }} animate={{ width: `${pct}%` }} transition={{ ease: 'linear' }} />
           </div>
           <span className="loader-pct">{pct}%</span>
         </motion.div>
