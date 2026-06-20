@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
+import { useTheme } from './hooks/useTheme'
 import Loader from './components/Loader'
 import CustomCursor from './components/CustomCursor'
 import Nav from './components/Nav'
@@ -23,9 +24,10 @@ const tickerItems = [
 
 function App() {
   const [loading, setLoading] = useState(true)
+  const { theme, toggle } = useTheme()
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 900)
+    const t = setTimeout(() => setLoading(false), 1200)
     return () => clearTimeout(t)
   }, [])
 
@@ -33,7 +35,7 @@ function App() {
     <div className="app">
       <Loader show={loading} />
       <CustomCursor />
-      <Nav />
+      <Nav theme={theme} onToggle={toggle} />
       <main>
         <Hero />
         <Marquee items={tickerItems} />

@@ -3,7 +3,7 @@ import Reveal from './Reveal'
 
 export default function About() {
   return (
-    <section id="about" className="divider">
+    <section id="about" className="divider pattern-glow left">
       <div className="container about-grid">
         <Reveal>
           <span className="section-tag">About / 06</span>

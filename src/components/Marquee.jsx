@@ -1,3 +1,5 @@
+import { Diamond } from './Icons'
+
 export default function Marquee({ items }) {
   const loop = [...items, ...items]
   return (
@@ -6,6 +8,7 @@ export default function Marquee({ items }) {
         {loop.map((item, i) => (
           <span key={i}>
             <b>{item}</b>
+            <Diamond />
           </span>
         ))}
       </div>

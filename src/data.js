@@ -8,6 +8,13 @@ export const profile = {
   bio1: "19-year-old BCA student and full-stack developer who likes building products with strong structure, premium detail, and long-term thinking.",
   bio2: "I work across frontend, backend, payments, databases, auth, real-time systems, and AI integrations. My style is simple: make it functional, beautiful, and memorable.",
   status: 'Open for freelance, internships & full-time roles',
+  typewriter: [
+    'full-stack web products.',
+    'secure payment flows.',
+    'real-time experiences.',
+    'AI-assisted features.',
+    'pixel-perfect interfaces.',
+  ],
 }
 
 export const stats = [
@@ -39,7 +46,8 @@ export const projects = [
     ],
     stack: ['Laravel', 'Razorpay', 'PDF Viewer', 'MySQL', 'Auth'],
     category: 'Product / Education / Payments',
-    accent: '#c8ff4d',
+    accent: '#2152dd',
+    grad: 'linear-gradient(135deg, #2152dd 0%, #4f46e5 55%, #38bdf8 100%)',
   },
   {
     index: '02',
@@ -54,7 +62,8 @@ export const projects = [
     ],
     stack: ['React', 'Node.js', 'MongoDB', 'REST API'],
     category: 'Community / Social / UX',
-    accent: '#6e6bff',
+    accent: '#4f46e5',
+    grad: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #22d3ee 100%)',
   },
   {
     index: '03',
@@ -69,7 +78,8 @@ export const projects = [
     ],
     stack: ['WebSockets', 'Realtime', 'Node.js', 'Leaderboard'],
     category: 'Realtime / Events / Gamified',
-    accent: '#ff7a59',
+    accent: '#0ea5e9',
+    grad: 'linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%)',
   },
 ]
 

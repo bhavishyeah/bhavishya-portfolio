@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { profile, stats } from '../data'
 import Magnetic from './Magnetic'
+import Typewriter from './Typewriter'
+import { ArrowRight, ArrowUpRight } from './Icons'
 
 const ease = [0.16, 1, 0.3, 1]
 
@@ -41,9 +43,17 @@ export default function Hero() {
         <h1>
           <Line delay={0.15}>I BUILD</Line>
           <Line delay={0.28}>
-            <span className="accent-text">REACT</span>&nbsp;PRODUCTS.
+            <span className="accent-text">DIGITAL</span>&nbsp;THINGS.
           </Line>
         </h1>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          <Typewriter prefix="$ specialising in" words={profile.typewriter} />
+        </motion.div>
 
         <div className="hero-sub">
           <motion.p
@@ -76,10 +86,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1, ease }}
         >
           <Magnetic>
-            <a href="#projects" className="btn">View Projects</a>
+            <a href="#projects" className="btn">View Projects <ArrowRight style={{ width: 16, height: 16 }} /></a>
           </Magnetic>
           <Magnetic>
-            <a href="#contact" className="btn-outline">Hire Me</a>
+            <a href="#contact" className="btn-outline">Hire Me <ArrowUpRight style={{ width: 16, height: 16 }} /></a>
           </Magnetic>
         </motion.div>
       </div>
