@@ -1,30 +1,59 @@
+// ============================================================
+//  COMPLETE CONTENT INVENTORY — Bhavishya Verma
+//  100% of resume content preserved. Presentation only is remixed.
+// ============================================================
+
 export const profile = {
   name: 'Bhavishya Verma',
   shortName: 'Bhavishya',
-  role: 'React.js & Full-Stack Developer',
-  location: 'Dehradun, India',
-  email: 'bhavishya@example.com',
-  tagline: 'I build web products that feel engineered, not assembled.',
-  bio1: "19-year-old BCA student and full-stack developer who likes building products with strong structure, premium detail, and long-term thinking.",
-  bio2: "I work across frontend, backend, payments, databases, auth, real-time systems, and AI integrations. My style is simple: make it functional, beautiful, and memorable.",
+  role: 'React.js & Full-Stack Web Developer',
+  location: 'Dehradun, Uttarakhand, India',
+  email: 'bhavishyeah@gmail.com',
+  phone: '9667340978',
   status: 'Open for freelance, internships & full-time roles',
+  tagline: 'I BUILD REACT PRODUCTS.',
+  secondaryTagline:
+    'React.js & Full-Stack Developer crafting polished platforms, payment flows, real-time systems, and AI-assisted ideas — engineered, not assembled.',
+  bio: "19-year-old BCA student and full-stack developer who likes building products with strong structure, premium detail, and long-term thinking. I work across frontend, backend, payments, databases, auth, real-time systems, and AI integrations. My style is simple: make it functional, beautiful, and memorable.",
+  summary:
+    "React.js & Full-Stack Web Developer with 1+ year of hands-on experience building and deploying production-ready web applications. Proficient in React.js, TypeScript, Node.js, JavaScript, MongoDB, REST APIs, and modern web technologies. Delivered responsive, SEO-optimised platforms serving 300+ monthly users, integrated payment and authentication systems, and created immersive 3D web experiences. Additional experience in AI/ML from a 3-month internship, applying Python and NLP to real-world data pipelines. Passionate about writing clean code, leading technical initiatives, and solving user problems at scale.",
   typewriter: [
     'full-stack web products.',
     'secure payment flows.',
     'real-time experiences.',
     'AI-assisted features.',
-    'pixel-perfect interfaces.',
+    'immersive 3D web.',
+  ],
+  links: {
+    github: 'https://github.com/bhavishyeah',
+    linkedin: 'https://www.linkedin.com/in/bhavishyeah',
+  },
+  languages: [
+    { name: 'Hindi', level: 'Native' },
+    { name: 'English', level: 'B2 Proficiency' },
   ],
 }
 
+// Hero + counters (value is the numeric target, used by CountUp)
 export const stats = [
-  { value: '20+', label: 'Projects shipped' },
-  { value: '10+', label: 'Core technologies' },
-  { value: '2.5k+', label: 'Community reach' },
+  { value: 20, suffix: '+', label: 'Projects shipped' },
+  { value: 10, suffix: '+', label: 'Core technologies' },
+  { value: 2.5, suffix: 'k+', label: 'Community reach', decimals: 1 },
+  { value: 300, suffix: '+', label: 'Monthly users' },
+  { value: 1, suffix: '+', label: 'Year experience' },
 ]
 
+export const education = {
+  degree: 'Bachelor of Computer Applications (BCA)',
+  school: 'Institute of Technology & Management, Dehradun, Uttarakhand',
+  grad: 'Expected Graduation: 2027',
+  cgpa: '8.25',
+  cgpaOutOf: '/10',
+}
+
+// Personal details bento (About)
 export const facts = [
-  { label: 'Location', value: 'Aligarh / Dehradun, India' },
+  { label: 'Location', value: 'Dehradun, India' },
   { label: 'Role', value: 'Student + Full-Stack Developer' },
   { label: 'Focus', value: 'Web Apps, AI, Product UX' },
   { label: 'Strength', value: 'End-to-end product building' },
@@ -32,60 +61,137 @@ export const facts = [
   { label: 'Status', value: 'Open to opportunities' },
 ]
 
+// ============================================================
+//  PROJECTS — all 6, full content
+// ============================================================
 export const projects = [
   {
     index: '01',
-    tag: 'Featured',
     name: 'SelfWinner',
-    tagline: 'Notes-selling platform with protected viewer, payments, and premium UX.',
-    desc: 'Built a monetized study platform with secure PDF viewing, gated access, order flows, user auth, and polished onboarding for a better student buying experience.',
-    bullets: [
-      'Integrated authentication, Razorpay payment flow, and controlled note delivery.',
-      'Created viewer-first UX focused on trust, clarity, and conversion.',
-      'Structured product and user data for scaling beyond a simple notes site.',
-    ],
-    stack: ['Laravel', 'Razorpay', 'PDF Viewer', 'MySQL', 'Auth'],
+    tag: 'Featured',
     category: 'Product / Education / Payments',
-    accent: '#2152dd',
-    grad: 'linear-gradient(135deg, #2152dd 0%, #4f46e5 55%, #38bdf8 100%)',
+    date: 'December 2025 – Present',
+    accent: '#a3e635',
+    layout: 'left-large',
+    tagline: 'Secure academic notes marketplace with payments & protected delivery.',
+    bullets: [
+      'Developed a secure academic notes marketplace to simplify content access for students.',
+      'Implemented JWT authentication, Google OAuth, Razorpay integration, and protected file delivery using Cloudinary.',
+      'Enabled secure digital distribution of educational resources while improving accessibility and content monetization.',
+    ],
+    stack: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'Google OAuth', 'Razorpay', 'Cloudinary'],
   },
   {
     index: '02',
-    tag: 'Social',
-    name: 'Cherrish',
-    tagline: 'Anonymous confession platform with social interaction and expressive UI.',
-    desc: 'Designed a social product centered on pseudonymous posting, interactions, and moderation-friendly structure while keeping the experience emotionally engaging.',
+    name: '3D Nissan GTR Experience',
+    tag: '3D',
+    category: '3D / Interactive / Automotive',
+    date: 'May 2026',
+    accent: '#8b5cf6',
+    layout: 'center-3d',
+    is3D: true,
+    tagline: 'Immersive cinematic 3D automotive showcase built with Three.js.',
     bullets: [
+      'Created an immersive 3D automotive showcase using Three.js, GSAP, and modern frontend technologies.',
+      'Added 5+ interactive animations, cinematic transitions, and performance optimization techniques for a premium user experience.',
+    ],
+    stack: ['React.js', 'Vite', 'React Three Fiber', 'Three.js', 'GSAP', 'JavaScript', 'HTML5', 'CSS3', 'Vercel'],
+  },
+  {
+    index: '03',
+    name: 'She Can Foundation Website',
+    tag: 'Social Impact',
+    category: 'NGO / Volunteer / Social Impact',
+    date: 'June 2026',
+    accent: '#a3e635',
+    layout: 'right-offset',
+    tagline: 'Responsive NGO platform supporting awareness campaigns & initiatives.',
+    bullets: [
+      'Designed a responsive NGO website as a volunteer project using React.js and modern frontend technologies.',
+      'Improved digital visibility and accessibility while creating an engaging platform to support 18+ awareness campaigns and 10+ community initiatives.',
+    ],
+    stack: ['React.js', 'Vite', 'JavaScript', 'HTML5', 'CSS3', 'GSAP', 'Framer Motion', 'Vercel'],
+  },
+  {
+    index: '04',
+    name: 'Dental Care Website',
+    tag: '170+ Appointments',
+    category: 'Business / Healthcare / Conversion',
+    date: 'April 2026',
+    accent: '#f97316',
+    layout: 'left-small',
+    statBadge: { value: 170, suffix: '+', label: 'Appointments' },
+    tagline: 'Conversion-focused clinic website driving real appointment inquiries.',
+    bullets: [
+      'Built a conversion-focused business website for a local dental clinic using React.js and responsive design principles.',
+      'Added trust-building content to improve patient engagement and appointment inquiries with 170+ direct appointment conversions.',
+    ],
+    stack: ['React.js', 'Vite', 'JavaScript', 'Email.js', 'HTML5', 'CSS3', 'Responsive Design', 'Form Validation', 'Vercel'],
+  },
+  {
+    index: '05',
+    name: 'Cherrish',
+    tag: 'Social',
+    category: 'Social / Community / UX',
+    date: '',
+    accent: '#8b5cf6',
+    layout: 'center-right',
+    tagline: 'Anonymous confession platform with expressive, playful social UX.',
+    bullets: [
+      'Designed an anonymous confession platform with social interaction and expressive UI.',
       'Built anonymous content mechanics with profile and post interactions.',
       'Focused on playful interface choices without losing clarity.',
       'Handled scalable content rendering and engagement flow design.',
     ],
     stack: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    category: 'Community / Social / UX',
-    accent: '#4f46e5',
-    grad: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #22d3ee 100%)',
   },
   {
-    index: '03',
-    tag: 'Realtime',
+    index: '06',
     name: 'Robot Voting Arena',
-    tagline: 'Real-time voting experience with live leaderboards and event energy.',
-    desc: 'Created an engaging arena-style system where live votes updated rankings instantly, making the product feel event-driven and competitive.',
+    tag: 'Realtime',
+    category: 'Realtime / Events / Gamified',
+    date: '',
+    accent: '#f97316',
+    layout: 'full-width',
+    tagline: 'Arena-style real-time voting with live leaderboards and event energy.',
     bullets: [
+      'Created an engaging arena-style real-time voting experience with live leaderboards and event energy.',
       'Implemented live leaderboard updates and fast UI feedback loops.',
       'Designed audience-friendly interaction flow for public participation.',
       'Balanced performance with theatrical product presentation.',
     ],
     stack: ['WebSockets', 'Realtime', 'Node.js', 'Leaderboard'],
-    category: 'Realtime / Events / Gamified',
-    accent: '#0ea5e9',
-    grad: 'linear-gradient(135deg, #0284c7 0%, #0ea5e9 50%, #38bdf8 100%)',
   },
 ]
 
+// ============================================================
+//  EXPERIENCE — all 3 roles, full bullets
+// ============================================================
 export const experience = [
   {
-    period: 'May 2026 — Jul 2026',
+    period: 'June 2025 – Present',
+    role: 'Freelance Web Developer',
+    company: 'College Aggregator',
+    bullets: [
+      'Built and deployed a college discovery platform using React.js and TypeScript, delivering 30+ structured pages covering 24+ colleges with a responsive UI and intuitive navigation for students.',
+      'Achieved 300+ monthly users by applying best SEO practices, structured content, and metadata to improve search visibility and organic reach.',
+      'Improved load times and mobile experience through performance and accessibility optimizations; deployed and maintained the live site on Vercel.',
+      'Full project lifecycle ownership from requirements and design through development, deployment, and ongoing maintenance, ensuring timely updates and content accuracy.',
+    ],
+  },
+  {
+    period: 'January 2026 – April 2026',
+    role: 'AI Intern',
+    company: 'Codec Technologies',
+    bullets: [
+      'Reduced misclassification and improved detection robustness by implementing an NLP-based spam classification pipeline in Python covering text cleaning, feature engineering, and supervised model training with iterative hyperparameter tuning.',
+      'Delivered short-term trend forecasts and decision-support visualisations by building a stock-forecasting model using time-series feature engineering and predictive modelling techniques.',
+      'Processed, cleaned, and merged heterogeneous datasets; applied cross-validation and precision/recall evaluation metrics to validate model performance and guide iterative improvements.',
+      'Optimised model hyperparameters with experimental findings documented and production-deployment recommendations prepared for monitoring and scaling.',
+    ],
+  },
+  {
+    period: 'May 2026 – July 2026',
     role: 'Web Development Intern',
     company: 'She Can Foundation',
     bullets: [
@@ -94,71 +200,126 @@ export const experience = [
       'Contributed production-ready frontend work under real organizational constraints.',
     ],
   },
+]
+
+// ============================================================
+//  SKILLS — all 5 categories with every technology
+// ============================================================
+export const skillCategories = [
   {
-    period: 'Current',
-    role: 'Freelance Full-Stack Developer',
-    company: 'Independent',
-    bullets: [
-      'Builds client and self-initiated products across education, social, and event use cases.',
-      'Handles frontend, backend, integrations, database design, and deployment.',
-      'Works with React, Next.js, Laravel, Node.js, APIs, auth, and payment systems.',
-    ],
+    key: 'frontend',
+    label: 'Frontend Development',
+    motif: 'brackets',
+    accent: '#a3e635',
+    items: ['React.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Web Accessibility (WCAG)'],
+  },
+  {
+    key: 'backend',
+    label: 'Backend Development',
+    motif: 'database',
+    accent: '#a3e635',
+    items: ['SQL', 'Node.js', 'Authentication Systems', 'MongoDB', 'REST APIs'],
+  },
+  {
+    key: 'data',
+    label: 'Data & Analytics',
+    motif: 'chart',
+    accent: '#8b5cf6',
+    items: ['Advanced MS Excel', 'Data Analysis', 'Data Management', 'Data Cleaning', 'Data Visualization'],
+  },
+  {
+    key: 'engineering',
+    label: 'Software Engineering',
+    motif: 'gear',
+    accent: '#a3e635',
+    items: ['Debugging', 'Testing', 'Version Control', 'API Integration', 'SDLC concepts', 'CI/CD', 'PWA', 'Agile'],
+  },
+  {
+    key: 'ai',
+    label: 'Artificial Intelligence',
+    motif: 'neural',
+    accent: '#8b5cf6',
+    items: ['Python', 'Machine Learning Fundamentals', 'Natural Language Processing (NLP)', 'Predictive Modeling'],
+  },
+  {
+    key: 'tools',
+    label: 'Tools & Platforms',
+    motif: 'gear',
+    accent: '#a3e635',
+    items: ['UI/UX Design', 'Figma', 'Canva', 'Git', 'GitHub', 'Vercel', 'Render', 'Framer'],
+  },
+  {
+    key: 'seo',
+    label: 'SEO',
+    motif: 'chart',
+    accent: '#8b5cf6',
+    items: ['SEO Optimization', 'Keyword Research', 'Content Structuring'],
   },
 ]
 
-export const education = {
-  degree: 'Bachelor of Computer Applications',
-  school: 'Graphic Era Hill University, Dehradun',
-  grad: 'Graduation: 2027',
-  cgpa: '8.25',
+// Tech galaxy nodes (3D). level: core = lime, growing = violet
+export const techGalaxy = [
+  { name: 'React.js', level: 'core' },
+  { name: 'TypeScript', level: 'core' },
+  { name: 'JavaScript', level: 'core' },
+  { name: 'Node.js', level: 'core' },
+  { name: 'MongoDB', level: 'core' },
+  { name: 'REST APIs', level: 'core' },
+  { name: 'Tailwind CSS', level: 'core' },
+  { name: 'HTML5', level: 'core' },
+  { name: 'CSS3', level: 'core' },
+  { name: 'Git', level: 'core' },
+  { name: 'Three.js', level: 'growing' },
+  { name: 'R3F', level: 'growing' },
+  { name: 'GSAP', level: 'growing' },
+  { name: 'Python', level: 'growing' },
+  { name: 'NLP', level: 'growing' },
+  { name: 'Machine Learning', level: 'growing' },
+  { name: 'Figma', level: 'growing' },
+  { name: 'Vercel', level: 'growing' },
+  { name: 'SQL', level: 'growing' },
+  { name: 'Framer Motion', level: 'growing' },
+]
+
+// ============================================================
+//  AWARDS, WORKSHOPS, VOLUNTEERING
+// ============================================================
+export const awards = [
+  { title: '1st Place — Robotics Innovation Challenge 2026', detail: 'Arduino Firefighting Robot' },
+  { title: '1st Place — Cyber Security Poster Making Competition', detail: '' },
+  { title: '2nd Place — ONGC Vigilance Awareness Week Debate', detail: 'Debate Competition 2024' },
+  { title: 'Best Practical Presentation Award', detail: 'Synergy 2024' },
+  { title: 'Runner-Up — Brain Booster', detail: '' },
+]
+
+export const workshops = [
+  'Organized multiple technology expert talks under the ITM Tech Club.',
+  'Conducted 7 Google Gemini (Generative AI) workshops.',
+  'Coordinated technical workshops, hackathons, and student engagement activities.',
+  "Assisted in organizing Freshers' and Farewell events.",
+]
+
+export const volunteering = {
+  role: 'NSS Camp Volunteer',
+  org: 'NSS, Dehradun',
+  period: 'November 2024 – November 2025',
+  bullets: [
+    'Actively volunteered in an intensive NSS special checkup and treatment camp.',
+    'Coordinated free medical checkups, diagnostic screenings, and treatment distributions for over 2500+ underprivileged people.',
+  ],
+  stat: { value: 2500, suffix: '+', label: 'People served' },
 }
 
-export const awards = [
-  '1st Prize at Tech Sonance 2.0, Jigyasa.',
-  '2nd Prize in Toy Car Model Making at Smart India Hackathon activity.',
-  'NSS volunteer serving 2,500+ people across camps and drives.',
-  'Organized workshops and AI sessions for student communities.',
-]
-
-export const stack = [
-  { name: 'JavaScript', cat: 'Language', icon: 'javascript', level: 'core' },
-  { name: 'TypeScript', cat: 'Language', icon: 'typescript', level: 'growing' },
-  { name: 'Python', cat: 'Language', icon: 'python', level: 'growing' },
-  { name: 'React', cat: 'Frontend', icon: 'react', level: 'core' },
-  { name: 'Next.js', cat: 'Frontend', icon: 'nextdotjs', level: 'core' },
-  { name: 'Laravel', cat: 'Backend', icon: 'laravel', level: 'core' },
-  { name: 'Node.js', cat: 'Backend', icon: 'node.js', level: 'core' },
-  { name: 'Express', cat: 'Backend', icon: 'express', level: 'growing' },
-  { name: 'MongoDB', cat: 'Database', icon: 'mongodb', level: 'core' },
-  { name: 'MySQL', cat: 'Database', icon: 'mysql', level: 'core' },
-  { name: 'Supabase', cat: 'Backend Service', icon: 'supabase', level: 'growing' },
-  { name: 'Firebase', cat: 'Backend Service', icon: 'firebase', level: 'growing' },
-  { name: 'Git', cat: 'Workflow', icon: 'git', level: 'core' },
-  { name: 'GitHub', cat: 'Workflow', icon: 'github', level: 'core' },
-  { name: 'Vercel', cat: 'Deployment', icon: 'vercel', level: 'growing' },
-  { name: 'Railway', cat: 'Deployment', icon: 'railway', level: 'growing' },
-  { name: 'Cloudinary', cat: 'Media', icon: 'cloudinary', level: 'growing' },
-  { name: 'Google Auth', cat: 'Authentication', icon: 'google', level: 'growing' },
-  { name: 'Razorpay', cat: 'Payments', icon: 'webmoney', level: 'core' },
-  { name: 'WebSockets', cat: 'Realtime', icon: 'socketdotio', level: 'growing' },
-  { name: 'Gemini AI', cat: 'AI Integration', icon: 'googlegemini', level: 'growing' },
-  { name: 'Three.js', cat: 'Graphics', icon: 'threedotjs', level: 'growing' },
-  { name: 'GSAP', cat: 'Animation', icon: 'greensock', level: 'growing' },
-  { name: 'Tailwind CSS', cat: 'Frontend', icon: 'tailwindcss', level: 'core' },
-  { name: 'Framer Motion', cat: 'Animation', icon: 'framer', level: 'growing' },
-]
-
-export const skillGroups = [
-  { label: 'Frontend', items: ['HTML', 'CSS', 'React', 'Next.js', 'Responsive UI', 'Animations'] },
-  { label: 'Backend', items: ['Laravel', 'Node.js', 'Express', 'REST APIs', 'Auth'] },
-  { label: 'Data & Infra', items: ['MongoDB', 'MySQL', 'Supabase', 'Firebase', 'Deployment'] },
-  { label: 'Specialties', items: ['Razorpay', 'Cloudinary', 'WebSockets', 'PDF Viewer', 'AI Features'] },
+// Marquee bands
+export const marqueeItems = [
+  'REACT', 'NEXT.JS', 'NODE.JS', 'THREE.JS', 'FULL-STACK', 'OPEN FOR WORK',
 ]
 
 export const nav = [
-  { label: 'Projects', href: '#projects' },
+  { label: 'Work', href: '#projects' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Stack', href: '#stack' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Awards', href: '#awards' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]

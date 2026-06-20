@@ -1,22 +1,22 @@
 import { projects } from '../data'
-import Reveal from './Reveal'
-import ProjectRow from './ProjectRow'
+import ProjectCard from './ProjectCard'
+import TextScramble from './TextScramble'
 
 export default function Projects() {
   return (
-    <section id="projects" className="divider pattern-glow">
-      <div className="container">
-        <Reveal className="section-head">
+    <section id="projects" className="dot-grid glow-lime">
+      <div className="container section-inner">
+        <div className="section-head">
           <div>
-            <span className="section-tag">Selected Work / 03</span>
+            <span className="section-label"><span className="bar" /><TextScramble text="SELECTED WORK" /> <span className="idx">/ 06</span></span>
             <h2 className="section-title">Featured <span className="grad">Projects</span></h2>
           </div>
-          <span className="section-note">Ranked by scope &amp; impact, not chronology</span>
-        </Reveal>
+          <span className="section-note">Six builds across products, 3D, social impact &amp; realtime — full case content preserved.</span>
+        </div>
 
-        <div className="projects-list">
+        <div className="projects-stack">
           {projects.map((p, i) => (
-            <ProjectRow key={p.name} project={p} delay={i * 0.05} />
+            <ProjectCard key={p.name} project={p} delay={(i % 2) * 0.05} />
           ))}
         </div>
       </div>

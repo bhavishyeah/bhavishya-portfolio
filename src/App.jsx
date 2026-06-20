@@ -1,47 +1,46 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
-import { useTheme } from './hooks/useTheme'
-import Loader from './components/Loader'
+import { marqueeItems } from './data'
+import SmoothScroll from './components/SmoothScroll'
+import Grain from './components/Grain'
+import ScrollProgress from './components/ScrollProgress'
 import CustomCursor from './components/CustomCursor'
+import Loader from './components/Loader'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Marquee from './components/Marquee'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
-import Stack from './components/Stack'
+import Skills from './components/Skills'
+import Awards from './components/Awards'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-const tickerItems = [
-  'Available for Work',
-  'React.js',
-  'Full-Stack',
-  'Node.js',
-  'AI Integrations',
-  'Dehradun, India',
-]
-
 function App() {
   const [loading, setLoading] = useState(true)
-  const { theme, toggle } = useTheme()
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1200)
+    const t = setTimeout(() => setLoading(false), 1400)
     return () => clearTimeout(t)
   }, [])
 
   return (
     <div className="app">
       <Loader show={loading} />
+      <Grain />
+      <SmoothScroll />
+      <ScrollProgress />
       <CustomCursor />
-      <Nav theme={theme} onToggle={toggle} />
+      <Nav />
       <main>
         <Hero />
-        <Marquee items={tickerItems} />
+        <Marquee items={marqueeItems} />
         <Projects />
         <Experience />
-        <Stack />
+        <Marquee items={[...marqueeItems].reverse()} />
+        <Skills />
+        <Awards />
         <About />
         <Contact />
       </main>

@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 
-export default function Reveal({ children, delay = 0, y = 32, className = '', as = 'div', style }) {
-  const [ref, inView] = useInView()
+export default function Reveal({ children, delay = 0, y = 34, className = '', as = 'div', style }) {
+  const [ref, inView] = useInView({ threshold: 0.15 })
   const Comp = motion[as] || motion.div
-
   return (
     <Comp
       ref={ref}
