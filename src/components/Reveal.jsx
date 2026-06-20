@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
 
-export default function Reveal({ children, delay = 0, y = 28, className = '', as = 'div' }) {
+export default function Reveal({ children, delay = 0, y = 32, className = '', as = 'div', style }) {
   const [ref, inView] = useInView()
   const Comp = motion[as] || motion.div
 
@@ -9,9 +9,10 @@ export default function Reveal({ children, delay = 0, y = 28, className = '', as
     <Comp
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      style={style}
+      initial={{ opacity: 0, y, filter: 'blur(6px)' }}
+      animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+      transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </Comp>

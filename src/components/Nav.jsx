@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 import { nav, profile } from '../data'
 import Magnetic from './Magnetic'
+import ThemeToggle from './ThemeToggle'
+import { ArrowUpRight } from './Icons'
 
-export default function Nav() {
-  const [scrolled, setScrolled] = useState(false)
+export default function Nav({ theme, onToggle }) {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
     let lastY = window.scrollY
     function onScroll() {
       const y = window.scrollY
-      setScrolled(y > 40)
-      if (y > 160 && y > lastY) setHidden(true)
+      if (y > 200 && y > lastY) setHidden(true)
       else setHidden(false)
       lastY = y
     }
@@ -20,22 +20,27 @@ export default function Nav() {
   }, [])
 
   return (
-    <header className={`nav ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''}`}>
+    <header className={`nav ${hidden ? 'hidden' : ''}`}>
       <a href="#hero" className="nav-brand">
         <span className="dot" />
         {profile.shortName}
       </a>
-      <nav className="nav-links">
+
+      <nav className="nav-pill">
         {nav.map((item) => (
           <a key={item.href} href={item.href}>{item.label}</a>
         ))}
       </nav>
-      <Magnetic strength={0.4}>
-        <a href="#contact" className="nav-cta">
-          Let&rsquo;s talk
-        </a>
-      </Magnetic>
-      <a href="#contact" className="nav-burger">Menu</a>
+
+      <div className="nav-right">
+        <ThemeToggle theme={theme} onToggle={onToggle} />
+        <Magnetic strength={0.4}>
+          <a href="#contact" className="nav-cta">
+            Let&rsquo;s talk <ArrowUpRight style={{ width: 14, height: 14 }} />
+          </a>
+        </Magnetic>
+        <a href="#contact" className="nav-burger">Menu</a>
+      </div>
     </header>
   )
 }

@@ -32,7 +32,7 @@ export default function CustomCursor() {
     const raf = requestAnimationFrame(tick)
 
     const hoverTargets = document.querySelectorAll(
-      'a, button, .project-row, .stack-item'
+      'a, button, .project-card, .stack-item, .fact, .timeline-card, .skill-card'
     )
     function enter() { setHovering(true) }
     function leave() { setHovering(false) }
