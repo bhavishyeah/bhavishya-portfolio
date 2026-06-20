@@ -6,8 +6,8 @@ const base = {
   strokeLinecap: 'round',
   strokeLinejoin: 'round',
   viewBox: '0 0 24 24',
-  width: 16,
-  height: 16,
+  width: 18,
+  height: 18,
 }
 
 export const ArrowRight = (p) => (
@@ -16,14 +16,11 @@ export const ArrowRight = (p) => (
 export const ArrowUpRight = (p) => (
   <svg {...base} {...p}><path d="M7 17 17 7M8 7h9v9" /></svg>
 )
-export const ArrowDown = (p) => (
-  <svg {...base} {...p}><path d="M12 5v14M6 13l6 6 6-6" /></svg>
+export const ExternalLink = (p) => (
+  <svg {...base} {...p}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" /></svg>
 )
 export const Check = (p) => (
-  <svg {...base} {...p} stroke="#a3e635"><path d="M20 6 9 17l-5-5" /></svg>
-)
-export const Star = (p) => (
-  <svg {...base} {...p}><path d="m12 3 2.6 5.6 6.1.8-4.5 4.2 1.2 6L12 17.8 6.6 19.6l1.2-6L3.3 9.4l6.1-.8L12 3z" /></svg>
+  <svg {...base} {...p}><path d="M20 6 9 17l-5-5" /></svg>
 )
 export const Trophy = (p) => (
   <svg {...base} {...p}><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3" /></svg>
@@ -39,4 +36,11 @@ export const Linkedin = (p) => (
 )
 export const Phone = (p) => (
   <svg {...base} {...p}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" /></svg>
+)
+export const Users = (p) => (
+  <svg {...base} {...p}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" /></svg>
+)
+// Filled sparkle/diamond for the marquee separator
+export const Sparkle = (p) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" {...p}><path d="M12 2c.5 4.5 3.5 7.5 8 8-4.5.5-7.5 3.5-8 8-.5-4.5-3.5-7.5-8-8 4.5-.5 7.5-3.5 8-8z" /></svg>
 )

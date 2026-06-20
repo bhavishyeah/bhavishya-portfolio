@@ -1,30 +1,21 @@
-import { lazy } from 'react'
 import { profile, facts, education } from '../data'
 import Reveal from './Reveal'
-import TextScramble from './TextScramble'
-import Lazy3D from './Lazy3D'
-
-const AmbientShapes = lazy(() => import('./three/AmbientShapes'))
 
 export default function About() {
   return (
-    <section id="about" className="dot-grid">
-      <Lazy3D fallback={null}><AmbientShapes variant="b" /></Lazy3D>
-      <div className="container section-inner">
-        <div className="section-head" style={{ marginBottom: '2.5rem' }}>
-          <div>
-            <span className="section-label"><span className="bar" /><TextScramble text="ABOUT" /> <span className="idx">/ 06</span></span>
-            <h2 className="section-title">Builder first. <span className="grad">Polish obsessed.</span></h2>
-          </div>
-        </div>
+    <section id="about">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="section-label">About <span className="idx">/ 06</span></span>
+          <h2 className="section-title">Builder first. <span className="accent">Polish obsessed.</span></h2>
+        </Reveal>
 
         <div className="about-grid">
-          <Reveal as="div" className="about-left">
-            <h2>Engineered, <em>not assembled.</em></h2>
-            <p>{profile.bio}</p>
-            <p className="about-summary">{profile.summary}</p>
+          <Reveal as="div" className="about-text">
+            <p className="lead">{profile.bio}</p>
+            <p>{profile.summary}</p>
 
-            <div className="edu-strip">
+            <div className="edu-card">
               <div>
                 <div className="e-deg">{education.degree}</div>
                 <div className="e-school">{education.school}</div>

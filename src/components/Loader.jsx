@@ -8,7 +8,7 @@ export default function Loader({ show }) {
     if (!show) return
     let raf
     const start = performance.now()
-    const dur = 1300
+    const dur = 900
     const loop = (t) => {
       const p = Math.min(100, Math.round(((t - start) / dur) * 100))
       setPct(p)
@@ -21,15 +21,8 @@ export default function Loader({ show }) {
   return (
     <AnimatePresence>
       {show && (
-        <motion.div
-          className="loader"
-          initial={{ opacity: 1 }}
-          exit={{ y: '-100%' }}
-          transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-        >
-          <motion.div className="loader-word" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            BHAVISHYA<b>.DEV</b>
-          </motion.div>
+        <motion.div className="loader" initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+          <div className="loader-word">BHAVISHYA<b>.DEV</b></div>
           <div className="loader-bar">
             <motion.span initial={{ width: '0%' }} animate={{ width: `${pct}%` }} transition={{ ease: 'linear' }} />
           </div>

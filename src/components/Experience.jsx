@@ -1,63 +1,46 @@
-import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { experience } from '../data'
 import Reveal from './Reveal'
-import TextScramble from './TextScramble'
-import { ArrowRight } from './Icons'
+import { useInView } from '../hooks/useInView'
+import { Check } from './Icons'
+
+const ease = [0.22, 1, 0.36, 1]
+
+function TimelineItem({ item, i }) {
+  const [ref, inView] = useInView({ threshold: 0.2 })
+  return (
+    <motion.div
+      ref={ref}
+      className="tl-item"
+      initial={{ opacity: 0, x: -20 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.6, delay: i * 0.1, ease }}
+    >
+      <div className="tl-card">
+        <div className="tl-period">{item.period}</div>
+        <h3 className="tl-role">{item.role}</h3>
+        <div className="tl-company">{item.company}</div>
+        <ul>
+          {item.bullets.map((b) => <li key={b}><Check width={15} height={15} /> {b}</li>)}
+        </ul>
+      </div>
+    </motion.div>
+  )
+}
 
 export default function Experience() {
-  const lineRef = useRef(null)
-  const [drawH, setDrawH] = useState(0)
-
-  useEffect(() => {
-    function onScroll() {
-      const el = lineRef.current
-      if (!el) return
-      const r = el.getBoundingClientRect()
-      const vh = window.innerHeight
-      // progress: 0 when top of line hits 75% of viewport, 1 when bottom passes 35%
-      const start = vh * 0.75
-      const end = vh * 0.35
-      const total = r.height + (start - end)
-      const passed = start - r.top
-      const p = Math.max(0, Math.min(1, passed / total))
-      setDrawH(p * r.height)
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-    }
-  }, [])
-
   return (
-    <section id="experience" className="glow-violet">
-      <div className="container section-inner">
-        <div className="section-head">
-          <div>
-            <span className="section-label"><span className="bar" /><TextScramble text="CAREER" /> <span className="idx">/ 03</span></span>
-            <h2 className="section-title">Experience &amp; <span className="grad">Timeline</span></h2>
-          </div>
-          <span className="section-note">Freelance build, AI internship &amp; NGO web role — full responsibilities preserved.</span>
-        </div>
+    <section id="experience" className="section-alt">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="section-label">Career <span className="idx">/ 03</span></span>
+          <h2 className="section-title">Professional <span className="accent">Experience</span></h2>
+          <p className="section-sub">Freelance build, AI internship &amp; NGO web role — full responsibilities preserved.</p>
+        </Reveal>
 
-        <div className="timeline" ref={lineRef}>
-          <div className="timeline-line">
-            <div className="draw" style={{ height: drawH }} />
-          </div>
+        <div className="timeline">
           {experience.map((e, i) => (
-            <div className={`tl-item ${i % 2 === 0 ? 'left' : 'right'}`} key={e.role + e.company}>
-              <span className="tl-node" />
-              <Reveal as="div" className="tl-card" delay={0.05}>
-                <span className="tl-period">{e.period}</span>
-                <h3 className="tl-role">{e.role}</h3>
-                <div className="tl-company">{e.company}</div>
-                <ul>
-                  {e.bullets.map((b) => <li key={b}><ArrowRight width={15} height={15} /> {b}</li>)}
-                </ul>
-              </Reveal>
-            </div>
+            <TimelineItem key={e.role + e.company} item={e} i={i} />
           ))}
         </div>
       </div>

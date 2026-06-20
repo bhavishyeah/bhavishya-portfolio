@@ -1,50 +1,51 @@
-import { lazy } from 'react'
-import { skillCategories, techGalaxy } from '../data'
+import { useState } from 'react'
+import { skillCategories } from '../data'
 import Reveal from './Reveal'
-import TextScramble from './TextScramble'
-import SkillMotif from './SkillMotif'
-import Lazy3D from './Lazy3D'
 
-const TechGalaxy = lazy(() => import('./three/TechGalaxy'))
+function SkillIcon({ slug, name }) {
+  const [err, setErr] = useState(false)
+  const letter = name.replace(/[^A-Za-z0-9]/g, '').charAt(0).toUpperCase()
+  if (!slug || err) return <span className="letter">{letter}</span>
+  return (
+    <img
+      src={`https://cdn.simpleicons.org/${slug}`}
+      alt={name}
+      loading="lazy"
+      onError={() => setErr(true)}
+    />
+  )
+}
 
 export default function Skills() {
   return (
-    <section id="skills" className="dot-grid">
-      <div className="container section-inner">
-        <div className="section-head">
-          <div>
-            <span className="section-label"><span className="bar" /><TextScramble text="TOOLS" /> <span className="idx">/ 07</span></span>
-            <h2 className="section-title">Tech <span className="grad">Stack</span> &amp; Skills</h2>
-          </div>
-          <span className="section-note">Every technology preserved across 7 categories.</span>
-        </div>
-
-        <Reveal as="div" className="galaxy-wrap">
-          <Lazy3D
-            fallback={<div style={{ position: 'absolute', inset: 0, display: 'grid', placeItems: 'center', fontFamily: 'JetBrains Mono, monospace', color: '#a1a1a1', fontSize: '0.8rem', letterSpacing: '0.1em' }}>TECH GALAXY</div>}
-          >
-            <TechGalaxy nodes={techGalaxy} />
-          </Lazy3D>
+    <section id="skills">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="section-label">Tech Stack <span className="idx">/ 05</span></span>
+          <h2 className="section-title">Skills &amp; <span className="accent">Technologies</span></h2>
+          <p className="section-sub">Every technology, organised by category. Filled dot = daily driver, outlined = growing.</p>
         </Reveal>
 
-        <div className="skills-grid">
-          {skillCategories.map((c, i) => (
-            <Reveal as="div" className="skill-quad" key={c.key} delay={(i % 2) * 0.06} style={{ borderColor: 'var(--line)' }}>
-              <SkillMotif type={c.motif} color={c.accent} />
-              <div className="quad-head">
-                <span className="quad-dot" style={{ background: c.accent }} />
-                <h3>{c.label}</h3>
-              </div>
-              <div className="chips">
-                {c.items.map((it) => <span className="chip" key={it}>{it}</span>)}
+        <div className="skills-wrap">
+          {skillCategories.map((cat, i) => (
+            <Reveal as="div" key={cat.label} delay={(i % 3) * 0.05}>
+              <h3 className="skill-cat-head">{cat.label} <span className="count">{cat.items.length}</span></h3>
+              <div className="skill-row">
+                {cat.items.map((s) => (
+                  <span className="skill-pill" key={s.name}>
+                    <SkillIcon slug={s.slug} name={s.name} />
+                    <span className="sname">{s.name}</span>
+                    <span className={`prof ${s.level}`} title={s.level === 'core' ? 'Daily driver' : 'Growing'} />
+                  </span>
+                ))}
               </div>
             </Reveal>
           ))}
         </div>
 
-        <Reveal as="div" className="skills-legend" style={{ marginTop: '2rem' }}>
-          <span className="key"><span className="sw" style={{ background: '#a3e635' }} /> Lime = Daily Driver</span>
-          <span className="key"><span className="sw" style={{ background: '#8b5cf6' }} /> Violet = Growing</span>
+        <Reveal as="div" className="skills-legend">
+          <span className="key"><span className="prof core" /> Daily driver</span>
+          <span className="key"><span className="prof growing" /> Growing</span>
         </Reveal>
       </div>
     </section>
