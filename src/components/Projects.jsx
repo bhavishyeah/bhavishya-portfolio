@@ -1,22 +1,20 @@
 import { projects } from '../data'
 import ProjectCard from './ProjectCard'
-import TextScramble from './TextScramble'
+import Reveal from './Reveal'
 
 export default function Projects() {
   return (
-    <section id="projects" className="dot-grid glow-lime">
-      <div className="container section-inner">
-        <div className="section-head">
-          <div>
-            <span className="section-label"><span className="bar" /><TextScramble text="SELECTED WORK" /> <span className="idx">/ 06</span></span>
-            <h2 className="section-title">Featured <span className="grad">Projects</span></h2>
-          </div>
-          <span className="section-note">Six builds across products, 3D, social impact &amp; realtime — full case content preserved.</span>
-        </div>
+    <section id="projects">
+      <div className="container">
+        <Reveal as="div" className="section-head">
+          <span className="section-label">Selected Work <span className="idx">/ 06</span></span>
+          <h2 className="section-title">Featured <span className="accent">Projects</span></h2>
+          <p className="section-sub">Six builds across products, 3D, social impact, healthcare &amp; realtime systems.</p>
+        </Reveal>
 
-        <div className="projects-stack">
+        <div className="projects-grid">
           {projects.map((p, i) => (
-            <ProjectCard key={p.name} project={p} delay={(i % 2) * 0.05} />
+            <ProjectCard key={p.name} project={p} delay={(i % 2) * 0.08} />
           ))}
         </div>
       </div>

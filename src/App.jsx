@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react'
 import './styles.css'
 import { marqueeItems } from './data'
 import SmoothScroll from './components/SmoothScroll'
-import Grain from './components/Grain'
-import ScrollProgress from './components/ScrollProgress'
-import CustomCursor from './components/CustomCursor'
 import Loader from './components/Loader'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import StatsBar from './components/StatsBar'
 import Marquee from './components/Marquee'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
@@ -21,24 +19,21 @@ function App() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 1400)
+    const t = setTimeout(() => setLoading(false), 1000)
     return () => clearTimeout(t)
   }, [])
 
   return (
     <div className="app">
       <Loader show={loading} />
-      <Grain />
       <SmoothScroll />
-      <ScrollProgress />
-      <CustomCursor />
       <Nav />
       <main>
         <Hero />
+        <StatsBar />
         <Marquee items={marqueeItems} />
         <Projects />
         <Experience />
-        <Marquee items={[...marqueeItems].reverse()} />
         <Skills />
         <Awards />
         <About />
