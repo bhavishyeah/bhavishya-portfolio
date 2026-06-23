@@ -63,7 +63,7 @@ export default function Cursor() {
   if (!enabled) return null
   return (
     <>
-      <div ref={ringRef} className="cursor-ring grain" aria-hidden="true" />
+      <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
       <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
     </>
   )
