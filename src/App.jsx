@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
-import { marqueeItems } from './data'
 import SmoothScroll from './components/SmoothScroll'
+import Cursor from './components/Cursor'
+import ClickSparkle from './components/ClickSparkle'
 import Loader from './components/Loader'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -27,11 +28,13 @@ function App() {
     <div className="app">
       <Loader show={loading} />
       <SmoothScroll />
+      <Cursor />
+      <ClickSparkle />
       <Nav />
       <main>
         <Hero />
         <StatsBar />
-        <Marquee items={marqueeItems} />
+        <Marquee />
         <Projects />
         <Experience />
         <Skills />

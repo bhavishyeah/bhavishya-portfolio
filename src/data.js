@@ -277,3 +277,74 @@ export const nav = [
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
+
+
+// ============================================================
+//  LOGOS — marquee banner (simpleicons CDN slugs)
+// ============================================================
+export const marqueeLogos = [
+  { name: 'React', slug: 'react' },
+  { name: 'Next.js', slug: 'nextdotjs' },
+  { name: 'Node.js', slug: 'nodedotjs' },
+  { name: 'TypeScript', slug: 'typescript' },
+  { name: 'JavaScript', slug: 'javascript' },
+  { name: 'MongoDB', slug: 'mongodb' },
+  { name: 'Tailwind CSS', slug: 'tailwindcss' },
+  { name: 'Three.js', slug: 'threedotjs' },
+  { name: 'GSAP', slug: 'greensock' },
+  { name: 'Git', slug: 'git' },
+  { name: 'GitHub', slug: 'github' },
+  { name: 'Vercel', slug: 'vercel' },
+  { name: 'Figma', slug: 'figma' },
+  { name: 'Python', slug: 'python' },
+]
+
+// ============================================================
+//  TECH → brand-icon slug map (for project tags)
+//  null / missing => renders text-only tag.
+// ============================================================
+export const techIcons = {
+  'React.js': 'react',
+  'React': 'react',
+  'Node.js': 'nodedotjs',
+  'MongoDB': 'mongodb',
+  'JWT': 'jsonwebtokens',
+  'Google OAuth': 'google',
+  'Razorpay': 'razorpay',
+  'Cloudinary': 'cloudinary',
+  'Vite': 'vite',
+  'React Three Fiber': 'threedotjs',
+  'Three.js': 'threedotjs',
+  'GSAP': 'greensock',
+  'JavaScript': 'javascript',
+  'HTML5': 'html5',
+  'CSS3': 'css3',
+  'Vercel': 'vercel',
+  'Framer Motion': 'framer',
+  'Email.js': 'maildotru',
+  'TypeScript': 'typescript',
+  'Tailwind CSS': 'tailwindcss',
+  'Python': 'python',
+  'Git': 'git',
+  'GitHub': 'github',
+}
+
+export function techSlug(name) {
+  return techIcons[name] || null
+}
+
+// ============================================================
+//  SKILL PROFICIENCY — deterministic pseudo-random score /5
+//  ("randomly scaled" but stable per skill, lightly biased by level)
+// ============================================================
+function scoreFor(name, level) {
+  let h = 0
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0
+  // core: 4–5, growing: 2–4
+  return level === 'core' ? 4 + (h % 2) : 2 + (h % 3)
+}
+
+export const skillCategoriesScored = skillCategories.map((c) => ({
+  ...c,
+  items: c.items.map((s) => ({ ...s, score: scoreFor(s.name, s.level) })),
+}))

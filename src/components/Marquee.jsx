@@ -1,13 +1,30 @@
-import { Sparkle } from './Icons'
+import { useState } from 'react'
+import { marqueeLogos } from '../data'
 
-// Pure-CSS infinite marquee — buttery smooth, no JS scroll.
-export default function Marquee({ items }) {
-  const loop = [...items, ...items, ...items, ...items]
+function LogoMark({ name, slug }) {
+  const [err, setErr] = useState(false)
+  if (err) return <span className="logo-fallback">{name}</span>
   return (
-    <div className="marquee" aria-hidden="true">
-      <div className="marquee-track">
-        {loop.map((item, i) => (
-          <span className="marquee-item" key={i}>{item}<Sparkle /></span>
+    <img
+      src={`https://cdn.simpleicons.org/${slug}/ffffff`}
+      alt={name}
+      title={name}
+      loading="lazy"
+      onError={() => setErr(true)}
+    />
+  )
+}
+
+// Dark logo banner with a smooth pure-CSS infinite marquee (ref: tech-logo strip).
+export default function Marquee() {
+  const loop = [...marqueeLogos, ...marqueeLogos, ...marqueeLogos]
+  return (
+    <div className="logo-banner grain" aria-label="Technologies I work with">
+      <div className="logo-track">
+        {loop.map((logo, i) => (
+          <span className="logo-item" key={`${logo.slug}-${i}`}>
+            <LogoMark name={logo.name} slug={logo.slug} />
+          </span>
         ))}
       </div>
     </div>
