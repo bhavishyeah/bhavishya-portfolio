@@ -1,10 +1,12 @@
 import { profile, facts, education } from '../data'
 import Reveal from './Reveal'
+import SectionBg from './SectionBg'
 
 export default function About() {
   return (
     <section id="about">
       <div className="container">
+        <SectionBg word="ABOUT" />
         <Reveal as="div" className="section-head">
           <span className="section-label">About <span className="idx">/ 06</span></span>
           <h2 className="section-title">Builder first. <span className="accent">Polish obsessed.</span></h2>

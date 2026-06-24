@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { skillCategoriesScored } from '../data'
 import Reveal from './Reveal'
+import SectionBg from './SectionBg'
 
 function SkillIcon({ slug, name }) {
   const [err, setErr] = useState(false)
@@ -33,6 +34,7 @@ export default function Skills() {
   return (
     <section id="skills">
       <div className="container">
+        <SectionBg word="SKILLS" />
         <Reveal as="div" className="section-head">
           <span className="section-label">Tech Stack <span className="idx">/ 05</span></span>
           <h2 className="section-title">Skills &amp; <span className="accent">Technologies</span></h2>

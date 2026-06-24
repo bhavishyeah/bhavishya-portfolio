@@ -242,12 +242,29 @@ export const skillCategories = [
   },
 ]
 
+// Award carousel placeholders — high-res Unsplash mock URLs (swap for real assets later).
+const U = (id) => `https://images.unsplash.com/photo-${id}?w=900&q=80&auto=format&fit=crop`
 export const awards = [
-  { rank: '1st', title: 'Robotics Innovation Challenge', event: 'Arduino Firefighting Robot', date: '2026' },
-  { rank: '1st', title: 'Cyber Security Poster Making', event: 'Poster Making Competition', date: '' },
-  { rank: '2nd', title: 'ONGC Vigilance Week Debate', event: 'Debate Competition', date: '2024' },
-  { rank: 'Best', title: 'Practical Presentation Award', event: 'Synergy', date: '2024' },
-  { rank: 'Runner Up', title: 'Brain Booster', event: 'Brain Booster', date: '' },
+  {
+    rank: '1st', title: 'Robotics Innovation Challenge', event: 'Arduino Firefighting Robot', date: '2026',
+    images: [U('1581092160562-40aa08e78837'), U('1518770660439-4636190af475'), U('1526374965328-7f61d4dc18c5')],
+  },
+  {
+    rank: '1st', title: 'Cyber Security Poster Making', event: 'Poster Making Competition', date: '',
+    images: [U('1550751827-4bd374c3f58b'), U('1510511459019-5dda7724fd87'), U('1563013544-824ae1b704d3')],
+  },
+  {
+    rank: '2nd', title: 'ONGC Vigilance Week Debate', event: 'Debate Competition', date: '2024',
+    images: [U('1505373877841-8d25f7d46678'), U('1517245386807-bb43f82c33c4'), U('1524178232363-1fb2b075b655')],
+  },
+  {
+    rank: 'Best', title: 'Practical Presentation Award', event: 'Synergy', date: '2024',
+    images: [U('1531482615713-2afd69097998'), U('1542744173-8e7e53415bb0'), U('1552664730-d307ca884978')],
+  },
+  {
+    rank: 'Runner Up', title: 'Brain Booster', event: 'Brain Booster', date: '',
+    images: [U('1488190211105-8b0e65b80b4e'), U('1456513080510-7bf3a84b82f8'), U('1454165804606-c3d57bc86b40')],
+  },
 ]
 
 export const workshops = [

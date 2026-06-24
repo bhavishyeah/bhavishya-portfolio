@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { experience } from '../data'
 import Reveal from './Reveal'
+import SectionBg from './SectionBg'
 import { useInView } from '../hooks/useInView'
 import { Check } from './Icons'
 
@@ -55,6 +56,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section-alt">
       <div className="container">
+        <SectionBg word="CAREER" />
         <Reveal as="div" className="section-head">
           <span className="section-label">Career <span className="idx">/ 03</span></span>
           <h2 className="section-title">Professional <span className="accent">Experience</span></h2>
