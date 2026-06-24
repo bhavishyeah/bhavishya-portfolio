@@ -1,51 +1,123 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { nav } from '../data'
 
-// Floating pill navbar (ref: dark pill + circular accent logo + white pill links)
+// Retractable floating navbar:
+// - Full pill at the top.
+// - After scrolling past the stats section (~2 sections), the pill retracts
+//   right-to-left into a compact "B" shell.
+// - Clicking the "B" shell expands the full navbar back out.
 export default function Nav() {
-  const [hidden, setHidden] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [compact, setCompact] = useState(false) // inside the compact zone
+  const [expandedFromPill, setExpandedFromPill] = useState(false) // user re-opened
+  const [open, setOpen] = useState(false) // mobile drawer
+  const collapseTimer = useRef(null)
 
   useEffect(() => {
-    let lastY = window.scrollY
-    function onScroll() {
-      const y = window.scrollY
-      setHidden(y > 320 && y > lastY)
-      lastY = y
+    const clearTimer = () => {
+      if (collapseTimer.current) {
+        clearTimeout(collapseTimer.current)
+        collapseTimer.current = null
+      }
     }
+
+    // Compact once the stats section has scrolled above the navbar.
+    const inCompactZone = () => {
+      const stats = document.querySelector('.stats-bar')
+      if (stats) return stats.getBoundingClientRect().bottom <= 80
+      return window.scrollY > window.innerHeight * 1.1
+    }
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24)
+      const zone = inCompactZone()
+
+      if (!zone) {
+        clearTimer()
+        setCompact(false)
+        setExpandedFromPill(false)
+        setOpen(false)
+        return
+      }
+      // in compact zone
+      setCompact(!expandedFromPill)
+    }
+
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    return () => {
+      clearTimer()
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [expandedFromPill])
+
+  const showFull = !compact || expandedFromPill
+  const isCompactOnly = compact && !expandedFromPill
+
+  const handleLogo = () => {
+    if (isCompactOnly) {
+      setExpandedFromPill(true)
+      setCompact(false)
+      return
+    }
+    document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const onLinkClick = () => {
+    setOpen(false)
+    // Re-collapse to the shell after navigating, if we're past the stats zone.
+    const stats = document.querySelector('.stats-bar')
+    if (stats && stats.getBoundingClientRect().bottom <= 80) {
+      collapseTimer.current = setTimeout(() => {
+        setExpandedFromPill(false)
+        setCompact(true)
+      }, 600)
+    }
+  }
 
   return (
-    <header className={`nav ${hidden ? 'hidden' : ''}`}>
-      <div className="nav-pill grain">
-        <a href="#hero" className="nav-logo" aria-label="Home">
-          <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
-            <path
-              fill="currentColor"
-              d="M16 3.2c1.7 2.6 3 3.9 5.6 5.6-2.6 1.7-3.9 3-5.6 5.6-1.7-2.6-3-3.9-5.6-5.6 2.6-1.7 3.9-3 5.6-5.6zM16 17.6c1.7 2.6 3 3.9 5.6 5.6-2.6 1.7-3.9 3-5.6 5.6-1.7-2.6-3-3.9-5.6-5.6 2.6-1.7 3.9-3 5.6-5.6zM6.4 10.4c1.1 1.7 2 2.6 3.7 3.7-1.7 1.1-2.6 2-3.7 3.7-1.1-1.7-2-2.6-3.7-3.7 1.7-1.1 2.6-2 3.7-3.7zM25.6 10.4c1.1 1.7 2 2.6 3.7 3.7-1.7 1.1-2.6 2-3.7 3.7-1.1-1.7-2-2.6-3.7-3.7 1.7-1.1 2.6-2 3.7-3.7z"
-            />
-          </svg>
-        </a>
+    <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className={`nav-pill ${showFull ? 'is-full' : 'is-compact'}`}>
+        <button
+          type="button"
+          className="nav-logo"
+          aria-label={isCompactOnly ? 'Expand navigation' : 'Back to top'}
+          aria-expanded={!isCompactOnly}
+          onClick={handleLogo}
+        >
+          B
+        </button>
 
-        <nav className={`nav-links ${open ? 'open' : ''}`}>
+        <div className="nav-reveal" aria-hidden={isCompactOnly}>
+          <nav className="nav-links">
+            {nav.map((item) => (
+              <a key={item.href} href={item.href} className="pill-link" onClick={onLinkClick} tabIndex={isCompactOnly ? -1 : 0}>
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <button
+            className="nav-toggle"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            tabIndex={isCompactOnly ? -1 : 0}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </div>
+
+      {open && showFull && (
+        <div className="nav-drawer">
           {nav.map((item) => (
-            <a key={item.href} href={item.href} className="pill-link" onClick={() => setOpen(false)}>
+            <a key={item.href} href={item.href} className="drawer-link" onClick={onLinkClick}>
               {item.label}
             </a>
           ))}
-        </nav>
-
-        <button
-          className="nav-toggle"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span /><span /><span />
-        </button>
-      </div>
+        </div>
+      )}
     </header>
   )
 }

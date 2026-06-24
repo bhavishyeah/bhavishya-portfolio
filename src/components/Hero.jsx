@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { profile } from '../data'
 import { ArrowRight, ArrowUpRight } from './Icons'
+import Typewriter from './Typewriter'
 
 const ease = [0.22, 1, 0.36, 1]
 
@@ -14,7 +15,9 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1 className="hero-title" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.08, ease }}>
-          I BUILD <span className="grad">REACT</span> PRODUCTS.
+          I BUILD<br />
+          <span className="grad">&ldquo;<Typewriter words={['SCALABLE', 'BEAUTIFUL', 'REACT', 'REAL-TIME', 'POLISHED']} />&rdquo;</span><br />
+          PRODUCTS.
         </motion.h1>
 
         <motion.p className="hero-bio" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2, ease }}>
