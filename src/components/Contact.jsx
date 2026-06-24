@@ -22,7 +22,7 @@ export default function Contact() {
           <div className="contact-social">
             <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin width={20} height={20} /></a>
             <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub"><Github width={20} height={20} /></a>
-            <a href="https://instagram.com/your-handle" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram width={20} height={20} /></a>
+            <a href="https://www.instagram.com/bhavish.yeah" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram width={20} height={20} /></a>
             <a href={`mailto:${profile.email}`} aria-label="Email"><Mail width={20} height={20} /></a>
           </div>
         </Reveal>

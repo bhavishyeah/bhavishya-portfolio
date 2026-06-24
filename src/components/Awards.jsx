@@ -27,7 +27,7 @@ export default function Awards() {
       <div className="container">
         <SectionBg word="IMPACT" />
         <Reveal as="div" className="section-head">
-          <span className="section-label">Awards &amp; Community <span className="idx">/ 05</span></span>
+          <span className="section-label">Awards &amp; Community <span className="idx">/ 04</span></span>
           <h2 className="section-title">Recognition &amp; <span className="accent">Impact</span></h2>
         </Reveal>
 

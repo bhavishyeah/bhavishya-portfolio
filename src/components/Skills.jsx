@@ -36,7 +36,7 @@ export default function Skills() {
       <div className="container">
         <SectionBg word="SKILLS" />
         <Reveal as="div" className="section-head">
-          <span className="section-label">Tech Stack <span className="idx">/ 05</span></span>
+          <span className="section-label">Tech Stack <span className="idx">/ 03</span></span>
           <h2 className="section-title">Skills &amp; <span className="accent">Technologies</span></h2>
           <p className="section-sub">Every technology, organised by category. Proficiency shown out of five.</p>
         </Reveal>
