@@ -5,6 +5,7 @@ import Cursor from './components/Cursor'
 import ClickSparkle from './components/ClickSparkle'
 import Loader from './components/Loader'
 import Nav from './components/Nav'
+import Reactions from './components/Reactions'
 import Hero from './components/Hero'
 import StatsBar from './components/StatsBar'
 import Marquee from './components/Marquee'
@@ -31,6 +32,7 @@ function App() {
       <Cursor />
       <ClickSparkle />
       <Nav />
+      <Reactions />
       <main>
         <Hero />
         <StatsBar />

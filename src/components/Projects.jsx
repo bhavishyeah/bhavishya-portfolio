@@ -9,7 +9,7 @@ export default function Projects() {
       <div className="container">
         <SectionBg word="PROJECTS" />
         <Reveal as="div" className="section-head">
-          <span className="section-label">Selected Work <span className="idx">/ 01</span></span>
+          <span className="section-label">{'// '}<span className="idx">01</span>_projects</span>
           <h2 className="section-title">Featured <span className="accent">Projects</span></h2>
           <p className="section-sub">Six builds across products, 3D, social impact, healthcare &amp; realtime systems.</p>
         </Reveal>
