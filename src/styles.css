@@ -1113,6 +1113,9 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 }
 [data-theme="dark"] .gh-fallback-link {
   color: var(--blue-400);
+}
+
+/* ============================================================
    LIVE REACTIONS WIDGET (top-right, opposite the navbar)
    ============================================================ */
 .reactions {
