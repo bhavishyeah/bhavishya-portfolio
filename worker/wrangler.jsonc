@@ -1,0 +1,19 @@
+{
+  "name": "bhavishya-reactions",
+  "main": "reactions.js",
+  "compatibility_date": "2024-12-01",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "REACTIONS",
+        "class_name": "ReactionsRoom"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ReactionsRoom"]
+    }
+  ]
+}

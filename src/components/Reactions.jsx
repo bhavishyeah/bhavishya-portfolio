@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import PartySocket from 'partysocket'
 
 const REACTIONS = [
   { key: 'thumb', emoji: '👍', label: 'Like' },
@@ -7,47 +6,57 @@ const REACTIONS = [
   { key: 'eyes', emoji: '👀', label: 'Watching' },
 ]
 
-// PartyKit host: set VITE_PARTYKIT_HOST in production (e.g. your-project.username.partykit.dev).
-// Falls back to the local dev server; if neither exists the widget still works locally (offline).
-const HOST = import.meta.env.VITE_PARTYKIT_HOST || (import.meta.env.DEV ? 'localhost:1999' : null)
+// Cloudflare Worker host for the reactions Durable Object.
+// Set VITE_REACTIONS_HOST in production (e.g. bhavishya-reactions.<account>.workers.dev)
+const HOST = import.meta.env.VITE_REACTIONS_HOST || null
 
-// Live reaction bar — counts update in real time across every visitor on the site.
 export default function Reactions() {
   const [counts, setCounts] = useState({ thumb: 0, fire: 0, eyes: 0 })
   const [online, setOnline] = useState(0)
   const [live, setLive] = useState(false)
   const [pop, setPop] = useState(null)
   const socketRef = useRef(null)
+  const reconnectRef = useRef(null)
 
   useEffect(() => {
     if (!HOST) return undefined
-    const socket = new PartySocket({ host: HOST, room: 'portfolio-reactions' })
-    socketRef.current = socket
 
-    const onOpen = () => setLive(true)
-    const onClose = () => setLive(false)
-    const onMessage = (event) => {
-      try {
-        const data = JSON.parse(event.data)
-        if (data.type === 'state') {
-          setCounts(data.counts)
-          if (typeof data.online === 'number') setOnline(data.online)
-        } else if (data.type === 'online') {
-          setOnline(data.online)
+    let closed = false
+
+    function connect() {
+      const protocol = HOST.startsWith('localhost') ? 'ws' : 'wss'
+      const socket = new WebSocket(`${protocol}://${HOST}`)
+      socketRef.current = socket
+
+      socket.addEventListener('open', () => setLive(true))
+      socket.addEventListener('close', () => {
+        setLive(false)
+        // Auto-reconnect after 3s unless component unmounted
+        if (!closed) {
+          reconnectRef.current = setTimeout(connect, 3000)
         }
-      } catch {
-        /* ignore malformed frames */
-      }
+      })
+      socket.addEventListener('message', (event) => {
+        try {
+          const data = JSON.parse(event.data)
+          if (data.type === 'state') {
+            setCounts(data.counts)
+            if (typeof data.online === 'number') setOnline(data.online)
+          } else if (data.type === 'online') {
+            setOnline(data.online)
+          }
+        } catch {
+          /* ignore malformed frames */
+        }
+      })
     }
 
-    socket.addEventListener('open', onOpen)
-    socket.addEventListener('close', onClose)
-    socket.addEventListener('message', onMessage)
+    connect()
+
     return () => {
-      socket.removeEventListener('open', onOpen)
-      socket.removeEventListener('close', onClose)
-      socket.removeEventListener('message', onMessage)
-      socket.close()
+      closed = true
+      clearTimeout(reconnectRef.current)
+      socketRef.current?.close()
     }
   }, [])
 
@@ -55,7 +64,9 @@ export default function Reactions() {
     setCounts((c) => ({ ...c, [key]: c[key] + 1 })) // optimistic
     setPop(key)
     setTimeout(() => setPop(null), 320)
-    socketRef.current?.send(JSON.stringify({ type: 'react', key }))
+    if (socketRef.current?.readyState === WebSocket.OPEN) {
+      socketRef.current.send(JSON.stringify({ type: 'react', key }))
+    }
   }
 
   return (
