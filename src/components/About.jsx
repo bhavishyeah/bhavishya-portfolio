@@ -8,7 +8,7 @@ export default function About() {
       <div className="container">
         <SectionBg word="ABOUT" />
         <Reveal as="div" className="section-head">
-          <span className="section-label">About <span className="idx">/ 06</span></span>
+          <span className="section-label">About <span className="idx">/ 05</span></span>
           <h2 className="section-title">Builder first. <span className="accent">Polish obsessed.</span></h2>
         </Reveal>
 

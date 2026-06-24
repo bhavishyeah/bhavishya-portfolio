@@ -8,7 +8,7 @@ export const profile = {
   shortName: 'Bhavishya',
   role: 'React.js & Full-Stack Web Developer',
   location: 'Dehradun, Uttarakhand, India',
-  email: 'bhavishyeah@gmail.com',
+  email: 'solo.bhavishya@gmail.com',
   phone: '9667340978',
   status: 'Open for freelance, internships & full-time roles',
   bio: 'React.js & Full-Stack Developer crafting polished platforms, payment flows, real-time systems, and AI-assisted ideas — engineered, not assembled.',
@@ -18,7 +18,7 @@ export const profile = {
     'React.js & Full-Stack Web Developer with 1+ year of hands-on experience building and deploying production-ready web applications. Proficient in React.js, TypeScript, Node.js, JavaScript, MongoDB, REST APIs, and modern web technologies. Delivered responsive, SEO-optimised platforms serving 300+ monthly users, integrated payment and authentication systems, and created immersive 3D web experiences. Additional experience in AI/ML from a 3-month internship, applying Python and NLP to real-world data pipelines. Passionate about writing clean code, leading technical initiatives, and solving user problems at scale.',
   links: {
     github: 'https://github.com/bhavishyeah',
-    linkedin: 'https://www.linkedin.com/in/bhavishyeah',
+    linkedin: 'https://www.linkedin.com/in/bhavishya-dev',
   },
   languages: [
     { name: 'Hindi', level: 'Native' },
@@ -59,7 +59,8 @@ export const projects = [
     badge: 'Featured',
     category: 'Product / Education / Payments',
     date: 'December 2025 – Present',
-    link: '#',
+    link: 'https://www.selfwinner.com',
+    repo: 'https://github.com/bhavishyeah/selfwinner',
     gradient: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
     description:
       'Secure academic notes marketplace with JWT authentication, Google OAuth, Razorpay integration, and protected file delivery via Cloudinary.',
@@ -71,7 +72,8 @@ export const projects = [
     badge: '3D',
     category: '3D / Interactive / Automotive',
     date: 'May 2026',
-    link: '#',
+    link: 'https://futurix-kappa.vercel.app',
+    repo: 'https://github.com/bhavishyeah/futurix-gtr',
     gradient: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
     description:
       'Immersive 3D automotive showcase with 5+ interactive animations and cinematic transitions.',
@@ -83,7 +85,8 @@ export const projects = [
     badge: 'Social Impact',
     category: 'NGO / Volunteer / Social Impact',
     date: 'June 2026',
-    link: '#',
+    link: 'https://shecanfoundation.henna.vercel.app',
+    repo: 'https://github.com/bhavishyeah/shecan-foundation',
     gradient: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%)',
     description:
       'Responsive NGO website supporting 18+ awareness campaigns and 10+ community initiatives.',
@@ -95,7 +98,8 @@ export const projects = [
     badge: 'Healthcare',
     category: 'Business / Healthcare / Conversion',
     date: 'April 2026',
-    link: '#',
+    link: 'https://thapar-dental-care-ddn.vercel.app',
+    repo: 'https://github.com/bhavishyeah/thapar-dental-care',
     gradient: 'linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%)',
     description:
       'Conversion-focused dental clinic website with 170+ direct appointment conversions.',
@@ -107,7 +111,8 @@ export const projects = [
     badge: 'Social',
     category: 'Social / Community / UX',
     date: '',
-    link: '#',
+    link: 'https://www.cherrish.in/',
+    repo: 'https://github.com/bhavishyeah/cherrish',
     gradient: 'linear-gradient(135deg, #6366f1 0%, #60a5fa 100%)',
     description:
       'Anonymous confession platform with pseudonymous posting, profile interactions, and moderation-friendly structure.',
@@ -119,7 +124,8 @@ export const projects = [
     badge: 'Realtime',
     category: 'Realtime / Events / Gamified',
     date: '',
-    link: '#',
+    link: 'https://robot-voting-arena.vercel.app/',
+    repo: 'https://github.com/bhavishyeah/robot-voting-arena',
     gradient: 'linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%)',
     description:
       'Real-time voting experience with live leaderboards and event-driven competitive UI.',

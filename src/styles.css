@@ -267,6 +267,29 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
+/* nav resume pill (outline variant on the dark pill) */
+.nav-resume { background: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.24); }
+.nav-resume:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+
+/* premium light/dark switch */
+.theme-toggle {
+  position: relative; flex-shrink: 0;
+  width: 52px; height: 28px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: background .25s var(--ease);
+}
+.theme-toggle:hover { background: rgba(255, 255, 255, 0.24); }
+.theme-toggle .tt-thumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #fff; color: var(--deep);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform .3s var(--ease), background .3s var(--ease), color .3s var(--ease);
+}
+[data-theme="dark"] .theme-toggle .tt-thumb { transform: translateX(24px); background: var(--blue-300); color: #07122b; }
+
 .nav-drawer {
   margin-top: 0.6rem; display: flex; flex-direction: column; gap: 0.4rem;
   background: var(--grad-deep); border: 1px solid rgba(255, 255, 255, 0.12);
@@ -309,6 +332,15 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
   transition: background .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
 }
 .btn-outline:hover { background: var(--bluewhite); transform: translateY(-2px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-family: var(--sans); font-weight: 600; font-size: 0.95rem;
+  padding: 0.9rem 0.4rem; color: var(--gray);
+  transition: color .25s var(--ease), transform .25s var(--ease);
+}
+.btn-ghost:hover { color: var(--deep); transform: translateY(-2px); }
+.btn-ghost svg { transition: transform .25s var(--ease); }
+.btn-ghost:hover svg { transform: translateY(2px); }
 
 /* ============================================================
    HERO  (70–80vh, left-aligned, no scroll cue)
@@ -472,11 +504,19 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.2rem; }
 .project-tag { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.72rem; font-weight: 500; background: var(--soft); color: #1e40af; padding: 0.32rem 0.6rem; border-radius: 999px; }
 .project-tag .tag-logo { width: 13px; height: 13px; object-fit: contain; }
+.project-actions { margin-top: auto; padding-top: 0.8rem; display: flex; align-items: center; gap: 1.1rem; flex-wrap: wrap; }
 .project-link {
-  margin-top: auto; padding-top: 0.6rem;
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-weight: 600; font-size: 0.88rem; color: var(--primary); width: fit-content;
 }
+.project-code {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-weight: 600; font-size: 0.88rem; color: var(--gray);
+  transition: color .2s var(--ease);
+}
+.project-code:hover { color: var(--ink); }
+.project-code svg { transition: transform .25s var(--ease); }
+.project-code:hover svg { transform: translateY(-1px); }
 .project-link span { position: relative; }
 .project-link span::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 1.5px; background: var(--primary); transition: width .25s var(--ease); }
 .project-link:hover span::after { width: 100%; }
@@ -776,3 +816,62 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 .loader-bar { width: min(260px, 60vw); height: 3px; background: var(--soft); border-radius: 999px; overflow: hidden; }
 .loader-bar span { display: block; height: 100%; background: var(--primary); border-radius: 999px; }
 .loader-pct { font-size: 0.74rem; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); }
+
+
+/* ============================================================
+   DARK THEME  (data-theme="dark")
+   Light theme is untouched; these rules only apply when toggled.
+   ============================================================ */
+:root[data-theme="dark"] {
+  --ink: #e8edf6;
+  --gray: #aab6cc;
+  --muted: #76849e;
+  --border: #243049;
+  --soft: #1a2540;
+  --bluewhite: #121b30;
+  --slate50: #0b1120;
+  --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.45);
+  --shadow-card-hover: 0 16px 44px rgba(0, 0, 0, 0.6);
+  --surface: #0f1727;
+}
+
+[data-theme="dark"] body { background: #070b16; color: var(--ink); }
+
+/* page-level background surfaces */
+[data-theme="dark"] .hero { background: linear-gradient(180deg, #0b1326 0%, #070b16 92%); }
+[data-theme="dark"] .stats-bar { background: linear-gradient(180deg, #0b1326, #070b16); }
+[data-theme="dark"] .contact { background: linear-gradient(180deg, #070b16, #0b1326); }
+[data-theme="dark"] .loader { background: #070b16; }
+
+/* card surfaces */
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .xp-card,
+[data-theme="dark"] .skill-pill,
+[data-theme="dark"] .workshops-card,
+[data-theme="dark"] .about-panel,
+[data-theme="dark"] .award-card,
+[data-theme="dark"] .contact-social a { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .volunteer-card { background: linear-gradient(160deg, #14213e, #0f1727); }
+[data-theme="dark"] .xp-featured { background: linear-gradient(160deg, #14213e 0%, #0f1727 58%); }
+
+/* outline button → transparent on dark */
+[data-theme="dark"] .btn-outline { background: transparent; }
+[data-theme="dark"] .btn-outline:hover { background: var(--soft); }
+
+/* headings/labels that used the dark-navy --deep fill or color */
+[data-theme="dark"] .stat-num,
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .contact h2 { --fill: linear-gradient(var(--blue-300), var(--blue-300)); }
+[data-theme="dark"] .skill-cat-head,
+[data-theme="dark"] .xp-company,
+[data-theme="dark"] .loader-word { color: var(--blue-300); }
+
+/* text-on-light-surface exceptions kept readable */
+[data-theme="dark"] .footer-pill { color: #1f2937; }
+[data-theme="dark"] .skill-pill .letter { background: #1a2540; color: var(--blue-300); }
+
+/* faint accents nudged for the dark canvas */
+[data-theme="dark"] .stat-label { color: var(--muted); }
+[data-theme="dark"] .xp-index { color: rgba(96, 165, 250, 0.08); }
+[data-theme="dark"] .section-bg { -webkit-text-stroke-color: rgba(96, 165, 250, 0.22); }
+[data-theme="dark"] .loader-bar { background: var(--soft); }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
-import { ExternalLink } from './Icons'
+import { ExternalLink, Github } from './Icons'
 import { techSlug } from '../data'
 
 function TechTag({ name }) {
@@ -42,9 +42,16 @@ export default function ProjectCard({ project, delay = 0 }) {
         <div className="project-tags">
           {project.tech.map((t) => <TechTag name={t} key={t} />)}
         </div>
-        <a className="project-link" href={project.link} target={project.link !== '#' ? '_blank' : undefined} rel="noreferrer">
-          <span>Live Demo</span> <ExternalLink width={15} height={15} />
-        </a>
+        <div className="project-actions">
+          <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
+            <span>Live Demo</span> <ExternalLink width={15} height={15} />
+          </a>
+          {project.repo && (
+            <a className="project-code" href={project.repo} target="_blank" rel="noreferrer" aria-label={`View ${project.name} code on GitHub`}>
+              <Github width={15} height={15} /> <span>View Code</span>
+            </a>
+          )}
+        </div>
       </div>
     </Reveal>
   )

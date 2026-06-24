@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { profile } from '../data'
-import { ArrowRight, ArrowUpRight } from './Icons'
+import { ArrowRight, ArrowUpRight, Download } from './Icons'
 import Typewriter from './Typewriter'
 
 const ease = [0.22, 1, 0.36, 1]
@@ -28,6 +28,7 @@ export default function Hero() {
         <motion.div className="hero-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.32, ease }}>
           <a href="#projects" className="btn">View My Work <ArrowRight width={17} height={17} /></a>
           <a href="#contact" className="btn-outline">Hire Me <ArrowUpRight width={17} height={17} /></a>
+          <a href="/resume.pdf" className="btn-ghost" target="_blank" rel="noreferrer" download>Download Resume <Download width={16} height={16} /></a>
         </motion.div>
 
         <motion.div className="hero-status" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.5 }}>

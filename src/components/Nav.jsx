@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { nav } from '../data'
+import ThemeToggle from './ThemeToggle'
 
 // Retractable floating navbar:
 // - Full pill at the top.
@@ -97,6 +98,12 @@ export default function Nav() {
             ))}
           </nav>
 
+          <a className="pill-link nav-resume" href="/resume.pdf" target="_blank" rel="noreferrer" tabIndex={isCompactOnly ? -1 : 0} download>
+            Resume
+          </a>
+
+          <ThemeToggle />
+
           <button
             className="nav-toggle"
             aria-label="Toggle menu"
@@ -116,6 +123,9 @@ export default function Nav() {
               {item.label}
             </a>
           ))}
+          <a className="drawer-link" href="/resume.pdf" target="_blank" rel="noreferrer" download onClick={onLinkClick}>
+            Resume
+          </a>
         </div>
       )}
     </header>
