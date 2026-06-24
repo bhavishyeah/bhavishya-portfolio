@@ -6,7 +6,7 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))
 
 export default function CountUp({ value, suffix = '', decimals = 0, duration = 1600, className = '' }) {
-  const [ref, inView] = useInView({ threshold: 0.4 })
+  const [ref, inView] = useInView({ threshold: 0, rootMargin: '0px 0px -12% 0px' })
   const reduced = usePrefersReducedMotion()
   const [n, setN] = useState(0)
   const started = useRef(false)

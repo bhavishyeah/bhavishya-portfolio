@@ -348,13 +348,14 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
    STATS BAR (prominent credibility bar)
    ============================================================ */
 .stats-bar {
+  padding: 0;
   background: linear-gradient(180deg, #ffffff, var(--bluewhite));
   border-top: 1px solid var(--soft);
   border-bottom: 1px solid var(--soft);
 }
 .stats-inner {
   display: grid; grid-template-columns: repeat(5, 1fr);
-  padding: clamp(2rem, 4vw, 3rem) 0;
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
 }
 .stat-cell {
   text-align: center; padding: 0.6rem 1rem;
@@ -382,24 +383,37 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 .logo-banner {
   position: relative; overflow: hidden;
   background: var(--navy);
-  padding: clamp(1.6rem, 3.5vw, 2.6rem) 0;
+  padding: clamp(1.5rem, 3.2vw, 2.4rem) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
+/* soft dark edge fades (logos dissolve into the navy band, no bright white glow) */
+.logo-banner::before,
+.logo-banner::after {
+  content: ""; position: absolute; top: 0; bottom: 0; z-index: 2;
+  width: clamp(44px, 7%, 110px); pointer-events: none;
+}
+.logo-banner::before { left: 0; background: linear-gradient(90deg, var(--navy), rgba(11, 16, 32, 0)); }
+.logo-banner::after { right: 0; background: linear-gradient(270deg, var(--navy), rgba(11, 16, 32, 0)); }
 .logo-track {
-  display: flex; align-items: center; gap: clamp(2.5rem, 6vw, 5.5rem);
-  width: max-content; animation: logoscroll 34s linear infinite; will-change: transform;
+  display: flex; align-items: center; gap: clamp(2rem, 4.5vw, 4rem);
+  width: max-content; animation: logoscroll 36s linear infinite; will-change: transform;
 }
 .logo-banner:hover .logo-track { animation-play-state: paused; }
-.logo-item { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-item { display: inline-flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
 .logo-item img {
-  height: clamp(24px, 3vw, 34px); width: auto;
-  opacity: 0.5; filter: grayscale(1) brightness(2);
+  height: clamp(20px, 2.4vw, 28px); width: auto;
+  opacity: 0.85; filter: grayscale(1) brightness(2);
   transition: opacity .25s var(--ease), transform .25s var(--ease);
 }
-.logo-item img:hover { opacity: 1; transform: scale(1.1); }
+.logo-name {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.25rem); letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.72); white-space: nowrap;
+  transition: color .25s var(--ease);
+}
+.logo-item:hover img { opacity: 1; transform: scale(1.06); }
+.logo-item:hover .logo-name { color: #fff; }
 .logo-fallback { color: rgba(255, 255, 255, 0.65); font-weight: 700; letter-spacing: 0.08em; font-size: 0.9rem; white-space: nowrap; }
 @keyframes logoscroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% / 3)); } }
 
@@ -451,29 +465,65 @@ section { position: relative; padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
 @media (max-width: 820px) { .projects-grid { grid-template-columns: minmax(0, 500px); } }
 
 /* ============================================================
-   EXPERIENCE (left timeline, single side)
+   EXPERIENCE — asymmetric bento grid
    ============================================================ */
-.timeline { position: relative; padding-left: 2rem; }
-.timeline::before { content: ""; position: absolute; left: 3px; top: 8px; bottom: 8px; width: 2px; background: var(--primary); opacity: 0.25; }
-.tl-item { position: relative; margin-bottom: clamp(1.4rem, 3vw, 2rem); }
-.tl-item:last-child { margin-bottom: 0; }
-.tl-item::before {
-  content: ""; position: absolute; left: calc(-2rem + -1px); top: 1.4rem;
-  width: 12px; height: 12px; border-radius: 50%; background: var(--primary);
-  box-shadow: 0 0 0 4px var(--bluewhite); transform: translateX(2px);
+.xp-bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 1.6vw, 20px);
 }
-.tl-card {
-  background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--primary);
-  border-radius: var(--r-btn); padding: 1.5rem; box-shadow: var(--shadow-card);
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+.xp-card {
+  position: relative; overflow: hidden;
+  background: #fff; border: 1px solid var(--border); border-radius: var(--r-card);
+  padding: clamp(1.3rem, 2.2vw, 1.9rem);
+  box-shadow: var(--shadow-card);
+  display: flex; flex-direction: column; gap: 0.45rem;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
-.tl-card:hover { transform: translateX(4px); box-shadow: var(--shadow-card-hover); }
-.tl-period { font-size: 0.76rem; font-weight: 600; color: var(--primary); letter-spacing: 0.02em; }
-.tl-role { font-family: var(--display); font-weight: 600; font-size: 1.25rem; color: var(--ink); margin-top: 0.3rem; }
-.tl-company { font-size: 1rem; font-weight: 700; color: var(--gray); margin-bottom: 0.9rem; }
-.tl-card ul { display: flex; flex-direction: column; gap: 0.5rem; }
-.tl-card li { display: flex; gap: 0.55rem; font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
-.tl-card li svg { flex-shrink: 0; margin-top: 0.25em; color: var(--primary); }
+.xp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); border-color: var(--soft); }
+/* asymmetric placement: two cards on top, one wide card below */
+.xp-card:nth-child(1) { grid-column: span 7; }
+.xp-card:nth-child(2) { grid-column: span 5; }
+.xp-card:nth-child(3) { grid-column: span 12; }
+.xp-featured { background: linear-gradient(160deg, var(--bluewhite) 0%, #fff 58%); border-color: var(--soft); }
+
+.xp-index {
+  position: absolute; top: -0.5rem; right: 0.4rem;
+  font-family: var(--display); font-weight: 700; font-size: 5rem;
+  color: rgba(30, 58, 138, 0.05); line-height: 1; pointer-events: none; user-select: none;
+}
+.xp-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.xp-logo {
+  width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: #fff;
+  background: var(--grad-blue); box-shadow: 0 6px 16px rgba(30, 58, 138, 0.22);
+}
+.xp-tags { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.xp-period {
+  font-size: 0.74rem; font-weight: 600; letter-spacing: 0.02em; white-space: nowrap;
+  color: var(--primary); background: var(--bluewhite); padding: 0.35rem 0.7rem; border-radius: 999px;
+}
+.xp-current {
+  display: inline-flex; align-items: center; gap: 0.4rem; white-space: nowrap;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; color: #0f766e;
+  background: rgba(16, 185, 129, 0.12); padding: 0.32rem 0.6rem; border-radius: 999px;
+}
+.xp-current .dot { width: 7px; height: 7px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18); animation: xp-pulse 1.8s ease-out infinite; }
+@keyframes xp-pulse { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); } 100% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); } }
+.xp-role { font-family: var(--display); font-weight: 600; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem); color: var(--ink); letter-spacing: -0.01em; margin-top: 0.4rem; }
+.xp-featured .xp-role { font-size: clamp(1.4rem, 1rem + 1.3vw, 2rem); }
+.xp-company { font-size: 0.95rem; font-weight: 700; color: var(--deep); margin-bottom: 0.5rem; }
+.xp-bullets { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.1rem; }
+.xp-bullets li { display: flex; gap: 0.55rem; font-size: 0.88rem; color: var(--gray); line-height: 1.5; }
+.xp-bullets li svg { flex-shrink: 0; margin-top: 0.28em; color: var(--primary); }
+/* wide bottom card: bullets flow in two columns */
+.xp-card:nth-child(3) .xp-bullets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1.8rem; }
+
+@media (max-width: 820px) {
+  .xp-card:nth-child(1), .xp-card:nth-child(2), .xp-card:nth-child(3) { grid-column: 1 / -1; }
+  .xp-card:nth-child(3) .xp-bullets { grid-template-columns: 1fr; }
+}
 
 /* ============================================================
    SKILLS (clean grid w/ brand icons + proficiency dots)

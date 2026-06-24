@@ -6,25 +6,48 @@ import { Check } from './Icons'
 
 const ease = [0.22, 1, 0.36, 1]
 
-function TimelineItem({ item, i }) {
-  const [ref, inView] = useInView({ threshold: 0.2 })
+function initials(name) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
+}
+
+function XpCard({ item, i }) {
+  const [ref, inView] = useInView({ threshold: 0.15 })
+  const current = /present/i.test(item.period)
   return (
-    <motion.div
+    <motion.article
       ref={ref}
-      className="tl-item"
-      initial={{ opacity: 0, x: -20 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: i * 0.1, ease }}
+      className={`xp-card ${i === 0 ? 'xp-featured' : ''}`}
+      initial={{ opacity: 0, y: 26 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: i * 0.08, ease }}
     >
-      <div className="tl-card">
-        <div className="tl-period">{item.period}</div>
-        <h3 className="tl-role">{item.role}</h3>
-        <div className="tl-company">{item.company}</div>
-        <ul>
-          {item.bullets.map((b) => <li key={b}><Check width={15} height={15} /> {b}</li>)}
-        </ul>
+      <span className="xp-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+
+      <div className="xp-top">
+        <span className="xp-logo">{initials(item.company)}</span>
+        <div className="xp-tags">
+          {current && (
+            <span className="xp-current"><i className="dot" /> Current</span>
+          )}
+          <span className="xp-period">{item.period}</span>
+        </div>
       </div>
-    </motion.div>
+
+      <h3 className="xp-role">{item.role}</h3>
+      <div className="xp-company">{item.company}</div>
+
+      <ul className="xp-bullets">
+        {item.bullets.map((b) => (
+          <li key={b}><Check width={14} height={14} /> {b}</li>
+        ))}
+      </ul>
+    </motion.article>
   )
 }
 
@@ -38,9 +61,9 @@ export default function Experience() {
           <p className="section-sub">Freelance build, AI internship &amp; NGO web role — full responsibilities preserved.</p>
         </Reveal>
 
-        <div className="timeline">
+        <div className="xp-bento">
           {experience.map((e, i) => (
-            <TimelineItem key={e.role + e.company} item={e} i={i} />
+            <XpCard key={e.role + e.company} item={e} i={i} />
           ))}
         </div>
       </div>
