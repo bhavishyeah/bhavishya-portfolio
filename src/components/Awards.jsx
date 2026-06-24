@@ -1,12 +1,31 @@
+import { useEffect, useRef, useState } from 'react'
 import { awards, workshops, volunteering } from '../data'
 import Reveal from './Reveal'
+import SectionBg from './SectionBg'
+import Carousel from './Carousel'
 import CountUp from './CountUp'
 import { Trophy, Check, Users } from './Icons'
 
 export default function Awards() {
+  const sectionRef = useRef(null)
+  const [playing, setPlaying] = useState(false)
+
+  // Auto-play the card carousels only while the section is actually on screen.
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setPlaying(entry.isIntersecting),
+      { threshold: 0.2 },
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
   return (
-    <section id="awards" className="section-alt">
+    <section id="awards" className="section-alt" ref={sectionRef}>
       <div className="container">
+        <SectionBg word="IMPACT" />
         <Reveal as="div" className="section-head">
           <span className="section-label">Awards &amp; Community <span className="idx">/ 05</span></span>
           <h2 className="section-title">Recognition &amp; <span className="accent">Impact</span></h2>
@@ -19,6 +38,9 @@ export default function Awards() {
                 <Trophy className="trophy" width={18} height={18} />
                 {a.date && <span className="award-date">{a.date}</span>}
               </div>
+
+              <Carousel images={a.images} playing={playing} start={i} interval={3000 + i * 250} />
+
               <div className="award-body">
                 <span className="award-rank">{a.rank}</span>
                 <div className="award-title">{a.title}</div>

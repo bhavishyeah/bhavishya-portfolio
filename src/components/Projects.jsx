@@ -1,11 +1,13 @@
 import { projects } from '../data'
 import ProjectCard from './ProjectCard'
 import Reveal from './Reveal'
+import SectionBg from './SectionBg'
 
 export default function Projects() {
   return (
     <section id="projects">
       <div className="container">
+        <SectionBg word="PROJECTS" />
         <Reveal as="div" className="section-head">
           <span className="section-label">Selected Work <span className="idx">/ 06</span></span>
           <h2 className="section-title">Featured <span className="accent">Projects</span></h2>
