@@ -243,11 +243,11 @@ export const skillCategories = [
 ]
 
 export const awards = [
-  { title: '1st Place — Robotics Innovation Challenge 2026', event: 'Arduino Firefighting Robot', date: '2026' },
-  { title: '1st Place — Cyber Security Poster Making Competition', event: 'Poster Making Competition', date: '' },
-  { title: '2nd Place — ONGC Vigilance Awareness Week Debate', event: 'Debate Competition', date: '2024' },
-  { title: 'Best Practical Presentation Award', event: 'Synergy', date: '2024' },
-  { title: 'Runner-Up — Brain Booster', event: 'Brain Booster', date: '' },
+  { rank: '1st', title: 'Robotics Innovation Challenge', event: 'Arduino Firefighting Robot', date: '2026' },
+  { rank: '1st', title: 'Cyber Security Poster Making', event: 'Poster Making Competition', date: '' },
+  { rank: '2nd', title: 'ONGC Vigilance Week Debate', event: 'Debate Competition', date: '2024' },
+  { rank: 'Best', title: 'Practical Presentation Award', event: 'Synergy', date: '2024' },
+  { rank: 'Runner Up', title: 'Brain Booster', event: 'Brain Booster', date: '' },
 ]
 
 export const workshops = [
