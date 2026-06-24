@@ -7,9 +7,8 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="container">
-        <SectionBg word="PROJECTS" />
+        <SectionBg word="PROJECTS" num={1} />
         <Reveal as="div" className="section-head">
-          <span className="section-label">{'// '}<span className="idx">01</span>_projects</span>
           <h2 className="section-title">Featured <span className="accent">Projects</span></h2>
           <p className="section-sub">Six builds across products, 3D, social impact, healthcare &amp; realtime systems.</p>
         </Reveal>

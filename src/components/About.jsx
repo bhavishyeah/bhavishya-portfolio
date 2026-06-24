@@ -6,9 +6,8 @@ export default function About() {
   return (
     <section id="about">
       <div className="container">
-        <SectionBg word="ABOUT" />
+        <SectionBg word="ABOUT" num={5} />
         <Reveal as="div" className="section-head">
-          <span className="section-label">{'// '}<span className="idx">05</span>_about</span>
           <h2 className="section-title">Builder first. <span className="accent">Polish obsessed.</span></h2>
         </Reveal>
 

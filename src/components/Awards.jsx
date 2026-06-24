@@ -25,9 +25,8 @@ export default function Awards() {
   return (
     <section id="awards" className="section-alt" ref={sectionRef}>
       <div className="container">
-        <SectionBg word="IMPACT" />
+        <SectionBg word="ACHIEVEMENTS" num={4} />
         <Reveal as="div" className="section-head">
-          <span className="section-label">{'// '}<span className="idx">04</span>_recognition</span>
           <h2 className="section-title">Recognition &amp; <span className="accent">Impact</span></h2>
         </Reveal>
 

@@ -34,9 +34,8 @@ export default function Skills() {
   return (
     <section id="skills">
       <div className="container">
-        <SectionBg word="SKILLS" />
+        <SectionBg word="TECHSTACK" num={3} />
         <Reveal as="div" className="section-head">
-          <span className="section-label">{'// '}<span className="idx">03</span>_tech_stack</span>
           <h2 className="section-title">Skills &amp; <span className="accent">Technologies</span></h2>
           <p className="section-sub">Every technology, organised by category. Proficiency shown out of five.</p>
         </Reveal>

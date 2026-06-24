@@ -56,9 +56,8 @@ export default function Experience() {
   return (
     <section id="experience" className="section-alt">
       <div className="container">
-        <SectionBg word="CAREER" />
+        <SectionBg word="CAREER" num={2} />
         <Reveal as="div" className="section-head">
-          <span className="section-label">{'// '}<span className="idx">02</span>_career</span>
           <h2 className="section-title">Professional <span className="accent">Experience</span></h2>
           <p className="section-sub">Freelance build, AI internship &amp; NGO web role — full responsibilities preserved.</p>
         </Reveal>

@@ -7,9 +7,8 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <SectionBg word="CONTACT" align="center" />
+        <SectionBg word="CONTACT" num={8} align="center" />
         <Reveal className="contact-inner">
-          <span className="section-label" style={{ justifyContent: 'center' }}>{'// '}<span className="idx">06</span>_contact</span>
           <h2>LET&rsquo;S BUILD TOGETHER</h2>
           <p>Available for freelance work, internships, and collaborations.</p>
           <div>
