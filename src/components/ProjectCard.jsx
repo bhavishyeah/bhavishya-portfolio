@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Reveal from './Reveal'
 import { ExternalLink, Github } from './Icons'
 import { techSlug } from '../data'
@@ -46,6 +47,11 @@ export default function ProjectCard({ project, delay = 0 }) {
           <a className="project-link" href={project.link} target="_blank" rel="noreferrer">
             <span>Live Demo</span> <ExternalLink width={15} height={15} />
           </a>
+          {project.caseStudyPath && (
+            <Link className="project-link case-study-link" to={project.caseStudyPath}>
+              <span>CASE STUDY</span>
+            </Link>
+          )}
           {project.repo && (
             <a className="project-code" href={project.repo} target="_blank" rel="noreferrer" aria-label={`View ${project.name} code on GitHub`}>
               <Github width={15} height={15} /> <span>View Code</span>

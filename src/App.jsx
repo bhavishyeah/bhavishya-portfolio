@@ -13,7 +13,9 @@ import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Awards from './components/Awards'
 import About from './components/About'
+import Now from './components/Now'
 import Contact from './components/Contact'
+import GitHubActivity from './components/GitHubActivity'
 import Footer from './components/Footer'
 
 function App() {
@@ -40,8 +42,10 @@ function App() {
         <Skills />
         <Awards />
         <About />
+        <Now />
         <Contact />
       </main>
+      <GitHubActivity />
       <Footer />
     </div>
   )

@@ -65,6 +65,7 @@ export const projects = [
     description:
       'Secure academic notes marketplace with JWT authentication, Google OAuth, Razorpay integration, and protected file delivery via Cloudinary.',
     tech: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'Google OAuth', 'Razorpay', 'Cloudinary'],
+    caseStudyPath: '/case-study/selfwinner',
   },
   {
     index: '02',
@@ -130,6 +131,7 @@ export const projects = [
     description:
       'Real-time voting experience with live leaderboards and event-driven competitive UI.',
     tech: ['WebSockets', 'Realtime', 'Node.js', 'Leaderboard'],
+    caseStudyPath: '/case-study/robot-voting-arena',
   },
 ]
 
@@ -301,6 +303,67 @@ export const nav = [
   { label: 'Contact', href: '#contact' },
 ]
 
+
+// ============================================================
+//  CASE STUDIES — deep-dive content for select projects
+// ============================================================
+export const caseStudies = {
+  selfwinner: {
+    slug: 'selfwinner',
+    name: 'SelfWinner',
+    problem: 'Placeholder: Students struggle to find reliable, affordable study materials...',
+    decisions: [
+      {
+        title: 'Razorpay Payment Integration',
+        description: 'Placeholder: Chose Razorpay for seamless UPI + card payments...',
+      },
+      {
+        title: 'JWT + Google OAuth Authentication',
+        description: 'Placeholder: Dual auth strategy for flexibility and security...',
+      },
+    ],
+    media: [
+      {
+        src: '/images/selfwinner-payment-flow.png',
+        alt: 'Placeholder: SelfWinner payment flow diagram showing user checkout to Razorpay callback',
+      },
+    ],
+    improvements: [
+      'Placeholder: Add subscription-based access tier for recurring revenue.',
+      'Placeholder: Implement full-text search across notes with Elasticsearch.',
+    ],
+  },
+  'robot-voting-arena': {
+    slug: 'robot-voting-arena',
+    name: 'Robot Voting Arena',
+    problem: 'Placeholder: Live events need real-time audience participation...',
+    decisions: [
+      {
+        title: 'WebSocket Strategy',
+        description: 'Placeholder: Used WebSockets for sub-second vote propagation...',
+      },
+      {
+        title: 'Leaderboard Ranking Logic',
+        description: 'Placeholder: Server-side sorted set ensures consistent ordering...',
+      },
+    ],
+    media: [
+      {
+        src: '/images/robot-voting-leaderboard.png',
+        alt: 'Placeholder: Robot Voting Arena leaderboard update flow showing WebSocket broadcast',
+      },
+    ],
+    improvements: [
+      'Placeholder: Add historical round replay with animated score timelines.',
+      'Placeholder: Implement rate limiting per user to prevent vote spamming.',
+    ],
+  },
+}
+
+// ============================================================
+//  NOW CONTENT — "What I'm building now" section
+// ============================================================
+export const nowContent = 'Currently scaling and upgrading the SelfWinner platform.'
 
 // ============================================================
 //  LOGOS — marquee banner (simpleicons CDN slugs)
