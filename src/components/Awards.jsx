@@ -14,12 +14,15 @@ export default function Awards() {
 
         <div className="awards-grid">
           {awards.map((a, i) => (
-            <Reveal as="div" className="award-card" key={a.title} delay={(i % 2) * 0.06}>
-              <Trophy className="trophy" width={22} height={22} />
-              <div>
+            <Reveal as="article" className="award-card" key={a.title} delay={(i % 3) * 0.06}>
+              <div className="award-top">
+                <Trophy className="trophy" width={18} height={18} />
+                {a.date && <span className="award-date">{a.date}</span>}
+              </div>
+              <div className="award-body">
+                <span className="award-rank">{a.rank}</span>
                 <div className="award-title">{a.title}</div>
                 {a.event && <div className="award-event">{a.event}</div>}
-                {a.date && <div className="award-date">{a.date}</div>}
               </div>
             </Reveal>
           ))}

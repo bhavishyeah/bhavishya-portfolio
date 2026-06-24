@@ -13,9 +13,26 @@ export default function About() {
         <div className="about-grid">
           <Reveal as="div" className="about-text">
             <p className="lead">{profile.bio}</p>
-            <p>{profile.summary}</p>
+            <p className="about-summary">{profile.summary}</p>
 
-            <div className="edu-card">
+            <div className="lang-row">
+              {profile.languages.map((l) => (
+                <span className="lang-chip" key={l.name}><b>{l.name}</b> {l.level}</span>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal as="aside" className="about-panel" delay={0.1}>
+            <dl className="info-list">
+              {facts.map((f) => (
+                <div className="info-row" key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="about-edu">
               <div>
                 <div className="e-deg">{education.degree}</div>
                 <div className="e-school">{education.school}</div>
@@ -26,21 +43,6 @@ export default function About() {
                 <span>CGPA{education.cgpaOutOf}</span>
               </div>
             </div>
-
-            <div className="lang-row">
-              {profile.languages.map((l) => (
-                <span className="lang-chip" key={l.name}><b>{l.name}</b> — {l.level}</span>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal as="div" className="bento" delay={0.1}>
-            {facts.map((f) => (
-              <div className="cell" key={f.label}>
-                <label>{f.label}</label>
-                <strong>{f.value}</strong>
-              </div>
-            ))}
           </Reveal>
         </div>
       </div>

@@ -45,7 +45,7 @@ export default function Skills() {
               <h3 className="skill-cat-head">{cat.label} <span className="count">{cat.items.length}</span></h3>
               <div className="skill-row">
                 {cat.items.map((s) => (
-                  <span className="skill-pill grain" key={s.name}>
+                  <span className="skill-pill grain" key={s.name} title={s.name}>
                     <SkillIcon slug={s.slug} name={s.name} />
                     <span className="sname">{s.name}</span>
                     <SkillRating score={s.score} />
