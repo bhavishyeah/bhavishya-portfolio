@@ -253,7 +253,7 @@ export default function Projects() {
             {projects.map((p, i) => (
               <div
                 key={p.name}
-                className="pslide-wrap"
+                className="pslide-wrare p"
                 ref={(el) => { slidesRef.current[i] = el }}
               >
                 <ProjectSlide project={p} isActive={uiState.activeIdx === i} />
