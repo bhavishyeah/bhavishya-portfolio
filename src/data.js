@@ -11,7 +11,7 @@ export const profile = {
   email: 'solo.bhavishya@gmail.com',
   phone: '9667340978',
   status: 'Open for freelance, internships & full-time roles',
-  bio: 'React.js & Full-Stack Developer crafting polished platforms, payment flows, real-time systems, and AI-assisted ideas — engineered, not assembled.',
+  bio: 'React.js & Full-Stack Developer crafting polished platforms, payment flows, real-time systems, and AI-assisted ideas engineered, not assembled.',
   secondaryBio:
     '19-year-old BCA student and full-stack developer who likes building products with strong structure, premium detail, and long-term thinking.',
   summary:
@@ -27,11 +27,11 @@ export const profile = {
 }
 
 export const stats = [
-  { value: 20, suffix: '+', label: 'Projects Shipped' },
+  { value: 8, suffix: '+', label: 'Projects Shipped' },
   { value: 10, suffix: '+', label: 'Core Technologies' },
   { value: 2.5, suffix: 'K+', label: 'Community Reach', decimals: 1 },
-  { value: 300, suffix: '+', label: 'Monthly Users' },
   { value: 1, suffix: '+', label: 'Year Experience' },
+  { value: 300, suffix: '+', label: 'Monthly Users' },
 ]
 
 export const education = {
@@ -43,9 +43,9 @@ export const education = {
 }
 
 export const facts = [
-  { label: 'Location', value: 'Aligarh / Dehradun, India' },
+  { label: 'Location', value: 'Dehradun, India' },
   { label: 'Role', value: 'Student + Full-Stack Developer' },
-  { label: 'Focus', value: 'Web Apps, AI, Product UX' },
+  { label: 'Focus', value: 'Frontend, Web Apps, AI' },
   { label: 'Strength', value: 'End-to-end product building' },
   { label: 'Style', value: 'Polished, premium, memorable' },
   { label: 'Status', value: 'Open to opportunities' },
@@ -62,6 +62,8 @@ export const projects = [
     link: 'https://www.selfwinner.com',
     repo: 'https://github.com/bhavishyeah/selfwinner',
     gradient: 'linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%)',
+    image: '/projects/selfwinner.png',       // screenshot — add later
+    video: '/projects/selfwinner.webm',       // 3-5s loop — add later
     description:
       'Secure academic notes marketplace with JWT authentication, Google OAuth, Razorpay integration, and protected file delivery via Cloudinary.',
     tech: ['React.js', 'Node.js', 'MongoDB', 'JWT', 'Google OAuth', 'Razorpay', 'Cloudinary'],
@@ -76,6 +78,8 @@ export const projects = [
     link: 'https://futurix-kappa.vercel.app',
     repo: 'https://github.com/bhavishyeah/futurix-gtr',
     gradient: 'linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)',
+    image: '/projects/futurix-gtr.png',
+    video: '/projects/futurix-gtr.webm',
     description:
       'Immersive 3D automotive showcase with 5+ interactive animations and cinematic transitions.',
     tech: ['React.js', 'Vite', 'React Three Fiber', 'Three.js', 'GSAP', 'JavaScript', 'HTML5', 'CSS3', 'Vercel'],
@@ -89,6 +93,8 @@ export const projects = [
     link: 'https://shecanfoundation.henna.vercel.app',
     repo: 'https://github.com/bhavishyeah/shecan-foundation',
     gradient: 'linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%)',
+    image: '/projects/shecan-foundation.png',
+    video: '/projects/shecan-foundation.webm',
     description:
       'Responsive NGO website supporting 18+ awareness campaigns and 10+ community initiatives.',
     tech: ['React.js', 'Vite', 'JavaScript', 'HTML5', 'CSS3', 'GSAP', 'Framer Motion', 'Vercel'],
@@ -102,6 +108,8 @@ export const projects = [
     link: 'https://thapar-dental-care-ddn.vercel.app',
     repo: 'https://github.com/bhavishyeah/thapar-dental-care',
     gradient: 'linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%)',
+    image: '/projects/thapar-dental-care.png',
+    video: '/projects/thapar-dental-care.webm',
     description:
       'Conversion-focused dental clinic website with 170+ direct appointment conversions.',
     tech: ['React.js', 'Vite', 'JavaScript', 'Email.js', 'HTML5', 'CSS3', 'Responsive Design', 'Form Validation', 'Vercel'],
@@ -115,6 +123,8 @@ export const projects = [
     link: 'https://www.cherrish.in/',
     repo: 'https://github.com/bhavishyeah/cherrish',
     gradient: 'linear-gradient(135deg, #6366f1 0%, #60a5fa 100%)',
+    image: '/projects/cherrish.png',
+    video: '/projects/cherrish.webm',
     description:
       'Anonymous confession platform with pseudonymous posting, profile interactions, and moderation-friendly structure.',
     tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
@@ -128,6 +138,8 @@ export const projects = [
     link: 'https://robot-voting-arena.vercel.app/',
     repo: 'https://github.com/bhavishyeah/robot-voting-arena',
     gradient: 'linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%)',
+    image: '/projects/robot-voting-arena.png',
+    video: '/projects/robot-voting-arena.webm',
     description:
       'Real-time voting experience with live leaderboards and event-driven competitive UI.',
     tech: ['WebSockets', 'Realtime', 'Node.js', 'Leaderboard'],

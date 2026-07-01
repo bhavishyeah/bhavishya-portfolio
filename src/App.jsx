@@ -16,7 +16,6 @@ import Awards from './components/Awards'
 import About from './components/About'
 import Now from './components/Now'
 import Contact from './components/Contact'
-import GitHubActivity from './components/GitHubActivity'
 import Footer from './components/Footer'
 
 function App() {
@@ -47,7 +46,6 @@ function App() {
         <Now />
         <Contact />
       </main>
-      <GitHubActivity />
       <Footer />
     </div>
   )
